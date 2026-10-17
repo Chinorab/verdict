@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Verdict report, desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F4F1}
+*{box-sizing:border-box}
+a{color:#2B45C4}a:hover{color:#1C2F8F}
+a:focus-visible,button:focus-visible{outline:2px solid #2B45C4;outline-offset:2px}
+.num{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.rise{animation:rise .6s cubic-bezier(.16,1,.3,1) both}
+@keyframes band{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.band{transform-origin:center;animation:band .7s cubic-bezier(.16,1,.3,1) .2s both}
+@keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.mark{animation:drop .5s cubic-bezier(.16,1,.3,1) .6s both}
+.btn{transition:background-color .2s ease}
+.btn-p:hover{background-color:#2A2F2D}
+.btn-s:hover{background-color:#E3E6E1}
+.navlink{color:#333937;text-decoration:none}.navlink:hover{color:#141716;text-decoration:underline;text-underline-offset:4px}
+@media (prefers-reduced-motion:reduce){.rise,.band,.mark{animation:none}.btn{transition:none}}
+</style>
+</helmet>
+<div style="background: #F3F4F1; color: #141716; font-family: 'Hanken Grotesk', 'Helvetica Neue', sans-serif; min-height: 1180px">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px) 48px">
+<header style="min-height: 72px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; border-bottom: 1px solid #D3D7D2">
+<a href="DesktopHome.dc.html" aria-label="Verdict home" style="display: flex; align-items: center; gap: 10px; color: #141716; text-decoration: none; min-height: 44px">
+<svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#141716"></rect><path d="M9 7.5l7 14 7-14" fill="none" stroke="#F3F4F1" stroke-width="3" stroke-linecap="square"></path><path d="M8 26h16" stroke="#7C93FF" stroke-width="2.5"></path></svg>
+<span style="font-size: 19px; font-weight: 600; letter-spacing: -0.2px">Verdict</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 15px">
+<a class="navlink" href="Timeline.dc.html">My trials</a>
+<a class="navlink" href="Privacy.dc.html">Privacy</a>
+</nav>
+</header>
+<div style="padding-top: 48px; display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: flex-start">
+<aside class="rise" style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 16px">
+<span class="num" style="font-size: 13px; color: #5F6662">Brightening Serum, 30 ml. Day 26 of 30.</span>
+<h1 style="margin: 0; font-size: clamp(48px, 5vw, 72px); line-height: 1; font-weight: 300; letter-spacing: -2.5px">Return it.</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #333937">The main claim, fading dark spots in 4 weeks, showed no change bigger than your measurement noise. Texture got rougher.</p>
+<div style="display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #141716; border-bottom: 1px solid #D3D7D2; margin-top: 8px">
+<div style="padding: 16px 0; display: flex; flex-direction: column; gap: 2px"><span class="num" style="font-size: 30px">$38.00</span><span style="font-size: 13px; color: #5F6662">refund at stake</span></div>
+<div style="padding: 16px 0 16px 18px; border-left: 1px solid #D3D7D2; display: flex; flex-direction: column; gap: 2px"><span class="num" style="font-size: 30px">4 days</span><span style="font-size: 13px; color: #5F6662">left, until Nov 11</span></div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 8px">
+<button type="button" class="btn btn-p" style="height: 56px; background: #141716; color: #F3F4F1; border: 0; font-family: inherit; font-size: 16px; font-weight: 500; cursor: pointer">Return</button>
+<button type="button" class="btn btn-s" style="height: 56px; background: transparent; color: #141716; border: 1px solid #141716; font-family: inherit; font-size: 16px; font-weight: 500; cursor: pointer">Keep</button>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #5F6662">Suggested: Return. Your call. Verdict only reports what it measured.</p>
+<div style="border-top: 1px solid #141716; margin-top: 12px; display: flex; flex-direction: column">
+<a href="Compare.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: space-between; color: #141716; text-decoration: none; font-size: 15px; border-bottom: 1px solid #D3D7D2">Compare photos<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg></a>
+<a href="Review.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: space-between; color: #141716; text-decoration: none; font-size: 15px; border-bottom: 1px solid #D3D7D2">Share my measured review<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg></a>
+</div>
+</aside>
+<section aria-labelledby="claims-h" style="flex: 999 1 560px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px; padding-bottom: 14px; border-bottom: 1px solid #141716">
+<h2 id="claims-h" style="margin: 0; font-size: 26px; font-weight: 400; letter-spacing: -0.4px">By claim</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; color: #4D5450">
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 20px; height: 11px; background: #D9DDD7; display: block"></span>Your noise</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 9px; height: 9px; background: #141716; display: block"></span>Change since day 0</span>
+</div>
+</div>
+<sc-for list="{{claims}}" as="c" hint-placeholder-count="4">
+<article style="padding: 22px 0; border-bottom: 1px solid #D3D7D2; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px">
+<div style="flex: 1 1 230px; display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-size: 17px; line-height: 1.35; font-weight: 500">{{c.quote}}</h3>
+<span style="{{c.statusStyle}}">{{c.status}}</span>
+<span class="num" style="font-size: 12px; color: #4D5450">{{c.detail}}</span>
+</div>
+<div style="flex: 2 1 280px; display: flex; flex-direction: column; gap: 6px">
+<div role="img" aria-label="{{c.aria}}" style="position: relative; height: 34px">
+<div style="position: absolute; left: 0; right: 0; top: 16px; height: 1px; background: #B9BEB9"></div>
+<div class="band" style="{{c.bandStyle}}"></div>
+<div style="position: absolute; left: 50%; top: 9px; width: 1px; height: 15px; background: #6B716D"></div>
+<div class="mark" style="{{c.markStyle}}"></div>
+</div>
+<div class="num" style="display: flex; justify-content: space-between; font-size: 11px; color: #5F6662"><span>Toward the claim</span><span>Away from it</span></div>
+</div>
+<span class="num" style="flex: none; width: 92px; text-align: right; font-size: 15px">{{c.ratio}}</span>
+</article>
+</sc-for>
+<article style="padding: 22px 0; border-bottom: 1px solid #D3D7D2; display: flex; flex-wrap: wrap; gap: 6px 32px; align-items: baseline">
+<h3 style="margin: 0; font-size: 17px; font-weight: 500; color: #5F6662; flex: 1 1 230px">“72 hour hydration”</h3>
+<span style="font-size: 15px; color: #5F6662; flex: 2 1 280px">Not measured. A photo can’t check this one.</span>
+</article>
+<div style="margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 20px 40px; font-size: 14px; line-height: 1.55; color: #4D5450">
+<p style="margin: 0"><strong style="color: #141716; font-weight: 500">Method.</strong> Two day 0 photos measure how much a reading moves on its own. A change counts when it is more than 1.5 times that noise.</p>
+<p style="margin: 0"><strong style="color: #141716; font-weight: 500">Conditions.</strong> 5 sessions, light matched within 3%, angle within 2°, same hour each evening.</p>
+</div>
+<p style="margin: 28px 0 0; font-size: 13px; color: #5F6662">Indicative results, not medical advice.</p>
+</section>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const colors = { up: '#2B45C4', flat: '#4D5450', down: '#B4460E' };
+    const rows = [
+      { quote: '“Fades dark spots in 4 weeks”', kind: 'flat', status: 'No measurable change', ratio: '0.6× noise', detail: 'Spot area −2.1%, noise ±3.4%', dot: 43.0, bl: 38.67, bw: 22.67 },
+      { quote: '“Radiant glow”', kind: 'up', status: 'Holding up', ratio: '2.7× noise', detail: 'Brightness evenness +5.9%, noise ±2.2%', dot: 30.33, bl: 42.67, bw: 14.67 },
+      { quote: '“Visibly reduces redness”', kind: 'flat', status: 'No measurable change', ratio: '0.4× noise', detail: 'Redness index +1.1%, noise ±2.8%', dot: 53.67, bl: 40.67, bw: 18.67 },
+      { quote: '“Smoother skin texture”', kind: 'down', status: 'Getting worse', ratio: '1.9× noise', detail: 'Roughness +7.4%, noise ±4.0%', dot: 74.67, bl: 36.67, bw: 26.67 }
+    ];
+    const claims = rows.map((r) => {
+      const c = colors[r.kind];
+      return Object.assign({}, r, {
+        statusStyle: 'font-size: 15px; font-weight: 500; color: ' + c,
+        bandStyle: 'position: absolute; top: 10px; height: 13px; background: #D9DDD7; left: ' + r.bl + '%; width: ' + r.bw + '%',
+        markStyle: 'position: absolute; top: 4px; width: 10px; height: 26px; left: calc(' + r.dot + '% - 5px); background: linear-gradient(' + c + ',' + c + ') center / 2px 100% no-repeat; border-top: 10px solid ' + c,
+        aria: r.status + '. ' + r.detail
+      });
+    });
+    return { claims };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+.main {
+  padding: 0 var(--gutter) 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.count {
+  padding: 32px 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.countRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.big {
+  font-size: 88px;
+  line-height: 0.9;
+  letter-spacing: -4px;
+  font-weight: 400;
+}
+.bigLabel {
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 300;
+}
+.sub {
+  margin-top: 12px;
+  font-size: 15px;
+  color: var(--text-2);
+}
+.sub strong {
+  color: var(--text);
+  font-weight: 400;
+}
+
+/* Progress rule */
+.track {
+  position: relative;
+  height: 56px;
+  margin-bottom: 8px;
+}
+.axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 14px;
+  height: 1px;
+  background: var(--line-soft);
+}
+.progress {
+  position: absolute;
+  left: 0;
+  top: 13px;
+  height: 3px;
+  background: var(--ink);
+  transform-origin: left center;
+  animation: grow 0.9s var(--ease-out) both;
+}
+.dot {
+  position: absolute;
+  top: 9px;
+  width: 11px;
+  height: 11px;
+  margin-left: -5px;
+  background: var(--ink);
+}
+.dotOpen {
+  background: var(--paper);
+  border: 1.5px solid var(--text-4);
+}
+.dotVerdict {
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+}
+.today {
+  position: absolute;
+  top: 8px;
+  width: 13px;
+  height: 13px;
+  margin-left: -6px;
+  background: var(--accent);
+}
+.deadlineTick {
+  position: absolute;
+  right: 0;
+  top: 4px;
+  width: 2px;
+  height: 21px;
+  background: var(--deadline);
+}
+.tick {
+  position: absolute;
+  top: 32px;
+  font-size: 11px;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+.tickToday {
+  color: var(--accent);
+}
+.tickDeadline {
+  right: 0;
+  color: var(--deadline);
+}
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Rows */
+.list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line-strong);
+}
+.row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+.rowDue {
+  padding: 20px 0;
+}
+.date {
+  font-size: var(--fs-micro);
+  line-height: 1.6;
+  color: var(--text-3);
+}
+.dateDue {
+  color: var(--accent);
+}
+.dateDeadline {
+  color: var(--deadline);
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.bodyDue {
+  gap: 12px;
+}
+.title {
+  font-size: 15px;
+  font-weight: 500;
+}
+.titleQuiet {
+  font-size: 15px;
+  color: var(--text-2);
+}
+.titleDeadline {
+  font-size: 15px;
+  color: var(--deadline);
+}
+.note {
+  font-size: var(--fs-small);
+  color: var(--text-3);
+}
+.noteStrong {
+  font-size: var(--fs-small);
+  color: var(--text-2);
+}
+.check {
+  color: var(--text);
+}
+.rowLink {
+  font-size: 14px;
+  min-height: var(--target);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Reminder */
+.reminder {
+  margin-top: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line-strong);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.reminderRow {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.reminderControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+}
+.select {
+  height: var(--target);
+  border: 1px solid var(--line-field);
+  background: var(--field);
+  padding: 0 10px;
+  font-size: 14px;
+}
+.foot {
+  margin-top: auto;
+}
+.empty {
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--text-2);
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress {
+    animation: none;
+  }
+}

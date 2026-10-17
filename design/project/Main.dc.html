@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Verdict home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E7E9E5}
+*{box-sizing:border-box}
+a{color:#2B45C4}a:hover{color:#1C2F8F}
+a:focus-visible,button:focus-visible{outline:2px solid #2B45C4;outline-offset:2px}
+.num{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.rise{animation:rise .6s cubic-bezier(.16,1,.3,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.26s}
+.cta{transition:background-color .2s ease,transform .15s ease}
+.cta:hover{background-color:#2A2F2D;color:#F3F4F1}
+.cta:active{transform:translateY(1px)}
+.cta svg{transition:transform .2s cubic-bezier(.16,1,.3,1)}
+.cta:hover svg{transform:translateX(3px)}
+@media (prefers-reduced-motion:reduce){.rise{animation:none}.cta,.cta svg{transition:none}}
+</style>
+</helmet>
+<main style="width: 390px; height: 844px; background: #F3F4F1; color: #141716; font-family: 'Hanken Grotesk', 'Helvetica Neue', sans-serif; display: flex; flex-direction: column; padding: 0 24px">
+<header style="height: 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #D3D7D2">
+<a href="Main.dc.html" aria-label="Verdict home" style="display: flex; align-items: center; gap: 10px; color: #141716; text-decoration: none; min-height: 44px">
+<svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#141716"></rect><path d="M9 7.5l7 14 7-14" fill="none" stroke="#F3F4F1" stroke-width="3" stroke-linecap="square"></path><path d="M8 26h16" stroke="#7C93FF" stroke-width="2.5"></path></svg>
+<span style="font-size: 18px; font-weight: 600; letter-spacing: -0.2px">Verdict</span>
+</a>
+<a href="Privacy.dc.html" style="font-size: 14px; color: #4D5450; text-decoration: none; min-height: 44px; display: flex; align-items: center">Privacy</a>
+</header>
+<section style="padding-top: 48px; display: flex; flex-direction: column; gap: 18px">
+<h1 class="rise" style="margin: 0; font-size: 34px; line-height: 1.1; font-weight: 300; letter-spacing: -0.9px; text-wrap: balance">Find out if it works on your skin before the return window closes.</h1>
+<p class="rise d1" style="margin: 0; font-size: 17px; line-height: 1.5; color: #4D5450; text-wrap: pretty">Scan the label. Photograph your skin on a schedule. Get a result for each claim, shown next to the measurement error.</p>
+</section>
+<div class="rise d2" style="margin-top: 32px; display: flex; flex-direction: column; gap: 14px">
+<a class="cta" href="Scan.dc.html" style="height: 56px; padding: 0 20px; background: #141716; color: #F3F4F1; text-decoration: none; display: flex; align-items: center; justify-content: space-between; font-size: 16px; font-weight: 500">Start a trial<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg></a>
+<a href="Privacy.dc.html" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #4D5450; text-decoration: none; min-height: 44px">
+<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="9" width="12" height="8"></rect><path d="M7 9V6.5a3 3 0 0 1 6 0V9"></path></svg>
+Face photos stay on your phone
+</a>
+</div>
+<section class="rise d3" aria-label="Why measure" style="margin-top: auto; border-top: 1px solid #141716; padding: 20px 0 18px; display: grid; grid-template-columns: auto 1fr; column-gap: 16px; align-items: start">
+<span class="num" style="font-size: 44px; line-height: 0.95; letter-spacing: -1.5px">18%</span>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 14px; line-height: 1.45">of the claims in nearly 300 magazine beauty ads were judged acceptable by researchers.</p>
+<a href="https://news.unl.edu/article/research-most-beauty-ad-claims-don-t-hold-up" style="font-size: 12px; line-height: 1.4">Journal of Global Fashion Marketing, via UNL News, 2015</a>
+</div>
+</section>
+<footer style="border-top: 1px solid #D3D7D2; padding: 14px 0 22px; display: flex; align-items: center; gap: 8px; font-size: 12px; color: #5F6662">
+<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 9v5M10 6.2v.1"></path></svg>
+Indicative results, not medical advice.
+</footer>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

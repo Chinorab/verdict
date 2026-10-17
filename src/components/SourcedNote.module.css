@@ -1,0 +1,25 @@
+.note {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line);
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.muted {
+  color: var(--text-2);
+}
+.source {
+  font-size: var(--fs-micro);
+  line-height: 1.4;
+  min-height: var(--target);
+  display: flex;
+  align-items: center;
+}

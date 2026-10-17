@@ -1,0 +1,80 @@
+.main {
+  padding: 0 var(--gutter) 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.intro {
+  padding-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+.h1 {
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+.toggles {
+  border-top: 1px solid var(--line-strong);
+}
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  min-height: 56px;
+}
+.toggle > span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.toggleTitle {
+  font-size: 15px;
+  font-weight: 500;
+}
+.toggleNote {
+  font-size: var(--fs-small);
+  color: var(--text-3);
+}
+.toggle input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--accent);
+  flex: none;
+}
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.actions button {
+  padding: 0 8px;
+  font-size: 14px;
+}
+.status {
+  min-height: 20px;
+  font-size: 14px;
+  color: var(--text);
+}
+.note {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--text-3);
+}
+.empty {
+  padding: 40px 0 0;
+  color: var(--text-2);
+}
+@media (max-width: 360px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}

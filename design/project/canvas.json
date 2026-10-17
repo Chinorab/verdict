@@ -1,0 +1,43 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-10-16T18:40:00Z"},
+  "title": "Verdict",
+  "launch": {"view": "canvas"},
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {"x": 0, "y": 0, "w": 390, "h": 844, "title": "01 Home", "is_interactive": true},
+    "Scan.dc.html": {"x": 470, "y": 0, "w": 390, "h": 844, "title": "02 New trial, scan label", "is_interactive": true},
+    "Claims.dc.html": {"x": 940, "y": 0, "w": 390, "h": 1260, "title": "03 New trial, claims and purchase", "is_interactive": true},
+    "Capture.dc.html": {"x": 1410, "y": 0, "w": 390, "h": 844, "title": "04 Guided capture", "is_interactive": true},
+    "Timeline.dc.html": {"x": 1880, "y": 0, "w": 390, "h": 1120, "title": "05 Trial timeline", "is_interactive": true},
+    "Compare.dc.html": {"x": 2350, "y": 0, "w": 390, "h": 1040, "title": "06 Compare", "is_interactive": true},
+    "Verdict.dc.html": {"x": 2820, "y": 0, "w": 390, "h": 1400, "title": "07 Verdict by claim", "is_interactive": true},
+    "Review.dc.html": {"x": 3290, "y": 0, "w": 390, "h": 960, "title": "08 My measured review", "is_interactive": true},
+    "Safety.dc.html": {"x": 3760, "y": 0, "w": 390, "h": 844, "title": "09 Safety alert", "is_interactive": true},
+    "Privacy.dc.html": {"x": 4230, "y": 0, "w": 390, "h": 1320, "title": "10 Privacy", "is_interactive": true},
+    "DesktopHome.dc.html": {"x": 0, "y": 1820, "w": 1440, "h": 1760, "title": "Desktop home", "expand": "fill", "is_interactive": true},
+    "DesktopVerdict.dc.html": {"x": 1520, "y": 1820, "w": 1440, "h": 1180, "title": "Desktop verdict", "expand": "fill", "is_interactive": true},
+    "Favicon.dc.html": {"x": 3040, "y": 1820, "w": 880, "h": 560, "title": "Favicon"}
+  },
+  "order": [
+    "Main.dc.html",
+    "Scan.dc.html",
+    "Claims.dc.html",
+    "Capture.dc.html",
+    "Timeline.dc.html",
+    "Compare.dc.html",
+    "Verdict.dc.html",
+    "Review.dc.html",
+    "Safety.dc.html",
+    "Privacy.dc.html",
+    "DesktopHome.dc.html",
+    "DesktopVerdict.dc.html",
+    "Favicon.dc.html"
+  ],
+  "notes": {
+    "row1": {"x": 0, "y": -300, "text": "Verdict, mobile", "kind": "title1", "maxW": 4620},
+    "row2": {"x": 0, "y": 1520, "text": "Desktop and favicon", "kind": "title1", "maxW": 3920},
+    "sample": {"x": 4720, "y": 0, "w": 320, "text": "Mesures, dates, prix : données d'exemple pour la maquette. À remplacer par les vraies valeurs de l'app. Les deux statistiques de contexte (accueil) sont réelles et sourcées : UNL / Journal of Global Fashion Marketing 2015, FDA.", "fill": "gray"}
+  },
+  "designSystems": []
+}

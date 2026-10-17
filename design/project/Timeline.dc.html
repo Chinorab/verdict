@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Trial timeline</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E7E9E5}
+*{box-sizing:border-box}
+a{color:#2B45C4}a:hover{color:#1C2F8F}
+a:focus-visible,button:focus-visible{outline:2px solid #2B45C4;outline-offset:2px}
+.num{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.grow{transform-origin:left center;animation:grow .9s cubic-bezier(.16,1,.3,1) both}
+@keyframes pulse{0%{transform:scale(1);opacity:.5}100%{transform:scale(2.2);opacity:0}}
+.pulse{animation:pulse 2s ease-out infinite}
+.cta{transition:background-color .2s ease}
+.cta:hover{background-color:#2A2F2D;color:#F3F4F1}
+@media (prefers-reduced-motion:reduce){.grow,.pulse{animation:none}.pulse{opacity:0}.cta{transition:none}}
+</style>
+</helmet>
+<main style="width: 390px; min-height: 1120px; background: #F3F4F1; color: #141716; font-family: 'Hanken Grotesk', 'Helvetica Neue', sans-serif; display: flex; flex-direction: column; padding: 0 24px 28px">
+<header style="height: 64px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; border-bottom: 1px solid #D3D7D2">
+<a href="Main.dc.html" aria-label="All trials" style="width: 44px; height: 44px; display: flex; align-items: center; color: #141716"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12.5 4l-6 6 6 6"></path></svg></a>
+<span style="text-align: center; font-size: 15px; font-weight: 500">Brightening Serum</span>
+<a href="Compare.dc.html" aria-label="Compare photos" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: flex-end; color: #141716"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="4" width="15" height="12"></rect><path d="M10 2v16"></path></svg></a>
+</header>
+<section aria-label="Return countdown" style="padding: 32px 0 24px; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; align-items: baseline; gap: 12px">
+<span class="num" style="font-size: 88px; line-height: 0.9; letter-spacing: -4px; font-weight: 400">16</span>
+<span style="font-size: 20px; line-height: 1.2; font-weight: 300">days left<br>to return</span>
+</div>
+<p style="margin: 12px 0 0; font-size: 15px; color: #4D5450">Return by <span class="num" style="color: #141716">Wed, Nov 11</span>. <span class="num" style="color: #141716">$38.00</span> at stake.</p>
+</section>
+<div aria-hidden="true" style="position: relative; height: 56px; margin-bottom: 8px">
+<div style="position: absolute; left: 0; right: 0; top: 14px; height: 1px; background: #B9BEB9"></div>
+<div class="grow" style="position: absolute; left: 0; width: 46.67%; top: 13px; height: 3px; background: #141716"></div>
+<span style="position: absolute; left: 0; top: 9px; width: 11px; height: 11px; background: #141716"></span>
+<span style="position: absolute; left: calc(23.33% - 5px); top: 9px; width: 11px; height: 11px; background: #141716"></span>
+<span class="pulse" style="position: absolute; left: calc(46.67% - 6px); top: 8px; width: 13px; height: 13px; background: #2B45C4"></span>
+<span style="position: absolute; left: calc(46.67% - 6px); top: 8px; width: 13px; height: 13px; background: #2B45C4"></span>
+<span style="position: absolute; left: calc(70% - 5px); top: 9px; width: 11px; height: 11px; border: 1.5px solid #6B716D; background: #F3F4F1"></span>
+<span style="position: absolute; left: calc(86.67% - 5px); top: 9px; width: 11px; height: 11px; border: 1.5px solid #141716; background: #F3F4F1"></span>
+<span style="position: absolute; right: 0; top: 4px; width: 2px; height: 21px; background: #B4460E"></span>
+<span class="num" style="position: absolute; left: 0; top: 32px; font-size: 11px; color: #5F6662">D0</span>
+<span class="num" style="position: absolute; left: calc(46.67% - 10px); top: 32px; font-size: 11px; color: #2B45C4">Today</span>
+<span class="num" style="position: absolute; left: calc(86.67% - 20px); top: 32px; font-size: 11px; color: #141716">Verdict</span>
+<span class="num" style="position: absolute; right: 0; top: 32px; font-size: 11px; color: #B4460E">D30</span>
+</div>
+<ol style="list-style: none; margin: 8px 0 0; padding: 0; border-top: 1px solid #141716">
+<li style="display: grid; grid-template-columns: 64px 1fr auto; gap: 12px; padding: 16px 0; border-bottom: 1px solid #D3D7D2; align-items: start">
+<span class="num" style="font-size: 12px; line-height: 1.6; color: #5F6662">Oct 12<br>Day 0</span>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Baseline, 2 photos</span><span style="font-size: 13px; color: #5F6662">Noise floor set</span></div>
+<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#141716" stroke-width="1.75" role="img" aria-label="Done"><path d="M4 10.5l4 4 8-9"></path></svg>
+</li>
+<li style="display: grid; grid-template-columns: 64px 1fr auto; gap: 12px; padding: 16px 0; border-bottom: 1px solid #D3D7D2; align-items: start">
+<span class="num" style="font-size: 12px; line-height: 1.6; color: #5F6662">Oct 19<br>Day 7</span>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Checkpoint</span><span style="font-size: 13px; color: #5F6662">Light matched within 3%</span></div>
+<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#141716" stroke-width="1.75" role="img" aria-label="Done"><path d="M4 10.5l4 4 8-9"></path></svg>
+</li>
+<li style="display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 20px 0; border-bottom: 1px solid #D3D7D2; align-items: start">
+<span class="num" style="font-size: 12px; line-height: 1.6; color: #2B45C4">Oct 26<br>Day 14</span>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Checkpoint, due today</span><span style="font-size: 13px; color: #4D5450">Take it before 9:30 PM to stay within an hour of day 0.</span></div>
+<a class="cta" href="Capture.dc.html" style="height: 48px; padding: 0 16px; background: #141716; color: #F3F4F1; text-decoration: none; display: flex; align-items: center; justify-content: space-between; font-size: 15px; font-weight: 500">Take today’s photo<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg></a>
+</div>
+</li>
+<li style="display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid #D3D7D2; align-items: start">
+<span class="num" style="font-size: 12px; line-height: 1.6; color: #5F6662">Nov 2<br>Day 21</span>
+<span style="font-size: 15px; color: #4D5450">Checkpoint</span>
+</li>
+<li style="display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid #D3D7D2; align-items: start">
+<span class="num" style="font-size: 12px; line-height: 1.6; color: #5F6662">Nov 7<br>Day 26</span>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Verdict</span><span style="font-size: 13px; color: #5F6662">4 days before the deadline, time to ship it back</span></div>
+</li>
+<li style="display: grid; grid-template-columns: 64px 1fr; gap: 12px; padding: 16px 0; align-items: start">
+<span class="num" style="font-size: 12px; line-height: 1.6; color: #B4460E">Nov 11<br>Day 30</span>
+<span style="font-size: 15px; color: #B4460E">Return window closes</span>
+</li>
+</ol>
+<div style="margin-top: 16px; padding: 16px 0; border-top: 1px solid #141716; display: grid; grid-template-columns: 20px 1fr auto; gap: 10px; align-items: center">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#141716" stroke-width="1.5" aria-hidden="true"><path d="M5 14V9a5 5 0 0 1 10 0v5l1.5 1.5h-13z"></path><path d="M8.5 17.5h3"></path></svg>
+<span style="font-size: 14px; line-height: 1.4">Reminder at 8:30 PM, the hour of your first photo</span>
+<a href="#" style="font-size: 14px; min-height: 44px; display: flex; align-items: center">Change</a>
+</div>
+<p style="margin: auto 0 0; padding-top: 20px; font-size: 12px; color: #5F6662">Indicative results, not medical advice.</p>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1120}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

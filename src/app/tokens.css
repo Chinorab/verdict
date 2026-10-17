@@ -1,0 +1,108 @@
+/*
+  Design tokens extracted from design/project/*.dc.html (Claude Design mockups, source of truth).
+  Light values are the mockups' exact hexes. Dark values extend the capture screen's palette
+  (Capture.dc.html) so the app reads as one system in both themes.
+*/
+:root {
+  /* Surfaces */
+  --paper: #f3f4f1;          /* page background */
+  --canvas: #e7e9e5;         /* outside the column on wide screens */
+  --field: #fbfbf9;          /* inputs */
+  --ink: #141716;            /* text, primary buttons, rules */
+  --ink-hover: #2a2f2d;
+  --on-ink: #f3f4f1;         /* text on ink */
+
+  /* Text */
+  --text: #141716;
+  --text-2: #4d5450;         /* body secondary */
+  --text-3: #5f6662;         /* captions, meta */
+  --text-4: #6b716d;         /* placeholder, disabled */
+
+  /* Lines */
+  --line: #d3d7d2;           /* hairlines between rows */
+  --line-strong: #141716;    /* section rules */
+  --line-field: #9da39f;     /* input borders */
+  --line-soft: #b9beb9;      /* timeline track */
+
+  /* Accent (one accent, used everywhere) */
+  --accent: #2b45c4;
+  --accent-hover: #1c2f8f;
+  --accent-soft: rgb(43 69 196 / 0.08);
+  --accent-mark: #7c93ff;    /* rule under the V mark, scan sweep */
+
+  /* Semantic */
+  --deadline: #b4460e;       /* return deadline and destructive actions */
+  --on-deadline: #fbfbf9;
+
+  /* Capture (dark camera screen, same in both themes) */
+  --cam-bg: #111413;
+  --cam-surface: #1b1e1d;
+  --cam-line: #2e3331;
+  --cam-text: #f3f4f1;
+  --cam-text-2: #c9ceca;
+  --cam-text-3: #a9afab;
+  --cam-ok: #9db0ff;
+  --cam-warn: #f2a766;
+
+  /* Type */
+  --font-sans: var(--font-hanken), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, Menlo, monospace;
+  --fs-display: 34px;
+  --fs-h1: 26px;
+  --fs-h2: 18px;
+  --fs-body: 15px;
+  --fs-lead: 17px;
+  --fs-small: 13px;
+  --fs-micro: 12px;
+
+  /* Space and size */
+  --gutter: 24px;
+  --header-h: 64px;
+  --target: 44px;
+  --cta-h: 56px;
+  --field-h: 48px;
+  --column: 480px;           /* phone column on wide screens */
+  --page-max: 1200px;
+
+  /* Shape: all sharp, everywhere */
+  --radius: 0;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 150ms;
+  --dur: 200ms;
+  --dur-enter: 500ms;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #111413;
+    --canvas: #0c0e0d;
+    --field: #1b1e1d;
+    --ink: #e9ebe7;
+    --ink-hover: #c9ceca;
+    --on-ink: #111413;
+
+    --text: #e9ebe7;
+    --text-2: #c9ceca;
+    --text-3: #a9afab;
+    --text-4: #8d9490;
+
+    --line: #2e3331;
+    --line-strong: #e9ebe7;
+    --line-field: #6f7672;
+    --line-soft: #3d4340;
+
+    --accent: #9db0ff;
+    --accent-hover: #c3ceff;
+    --accent-soft: rgb(157 176 255 / 0.12);
+    --accent-mark: #7c93ff;
+
+    --deadline: #f2a766;
+    --on-deadline: #111413;
+
+    color-scheme: dark;
+  }
+}

@@ -1,0 +1,131 @@
+# Verdict
+
+**Find out if a skincare product works on your skin before the return window closes.**
+
+Verdict turns the promises printed on a skincare label into a personal, measured trial. It
+reads the claims, photographs your skin on a schedule with the YouCam camera kit, measures each
+photo with YouCam AI Skin Analysis, and gives a result for each claim, shown next to how much a
+reading moves on its own, in time to return the product.
+
+Built for the YouCam API Skin AI & eCommerce VTO Hackathon (2026).
+
+> Status: calibration numbers, the live URL and the author's demo trial are added as they are
+> recorded. Nothing in this repository is sample data presented as real.
+
+## The problem
+
+- 47% of 633 skincare brands had no independently verifiable evidence behind any of their
+  high impact claims (M11 report, [Dermatology Times, Oct 13, 2026](https://www.dermatologytimes.com/view/ai-era-skincare-report-finds-widespread-gaps-in-verifiable-product-claims)).
+  The report is careful: unverifiable does not mean false. It means a shopper cannot check.
+- 6 of 18 skin products sold online for eczema, psoriasis, dermatitis or hyperpigmentation
+  contained clobetasol, a superpotent prescription steroid, that was not on the label
+  (Abilov et al., JAMA Network Open, summarized in [Dermatology Times, Oct 14, 2026](https://dermatologytimes.com/view/journal-digest-october-14-2026)).
+- 18% of the claims in nearly 300 magazine beauty ads were judged acceptable by researchers
+  ([Journal of Global Fashion Marketing, via UNL News, 2015](https://news.unl.edu/article/research-most-beauty-ad-claims-don-t-hold-up)).
+- In the US, cosmetics can be marketed without FDA approval, color additives aside
+  ([FDA, Cosmetics Safety Q&A](https://www.fda.gov/cosmetics/resources-consumers-cosmetics/cosmetics-safety-qa-prohibited-ingredients)).
+
+Shoppers find out whether a product works after the return window has closed. Verdict moves
+that answer before the deadline, and makes it a measurement instead of an impression.
+
+## Live demo
+
+- Live app: pending deployment (tasks T089).
+- The author's real trial, recorded on their own skin with a real product, read only, with its
+  real dates: `/demo` once the last check-in is done.
+- Same day test for judges: `/trial/new?quick=1`, about 10 minutes, no account.
+
+## How it works
+
+1. **Scan the label.** Claude (claude-sonnet-5-5, vision, structured output) reads the printed
+   claims and their timeframes and maps each one to a concern YouCam measures, or marks it as not
+   measurable. Only the label photo is sent, never a face.
+2. **Purchase and plan.** Price, purchase date and return window. Check-ins are scheduled so the
+   verdict lands before the deadline (2 days early for windows up to 14 days, 4 days otherwise).
+3. **Day 0, two photos.** Two captures one after the other. Their difference is your noise floor.
+4. **Check-ins** at the reminder hour (calendar file with alerts, built on the device).
+5. **Verdict per claim**: Holding up, Getting worse, or No measurable change, always with the
+   change and the threshold. Then Keep or Return, with the refund at stake and the days left.
+6. **Compare** day 0 and any check-in with YouCam's detection masks over your photos.
+7. **Share** a measured review card: numbers only, face photos off by default.
+8. **Health guardrail**: if redness or blemishes rise beyond your threshold, a calm notice;
+   twice in a row, a suggestion to pause and see a dermatologist. Never a diagnosis.
+
+## YouCam APIs used, and why
+
+| API | Where | Why |
+|---|---|---|
+| **AI Skin Analysis** (`/s2s/v2.1/task/skin-analysis`, JSON output) | every photo | Twelve concerns map directly to what skincare labels promise (dark spots, wrinkles, texture, redness, pores, blemishes, oiliness, hydration, firmness, radiance, dark circles, eye bags). Redness and acne are always requested for the health guardrail. |
+| **File API** (`/s2s/v2.0/file`, pre signed upload) | every photo | The browser uploads the photo straight to YouCam's URL. Verdict's server only asks for the link with the server held key, so the face photo never reaches our server. |
+| **JS Camera Kit v2.5** (`skincare` mode, `strict` quality) | capture | Live face quality checks (light, framing, angle) before a photo is taken, so readings are comparable from week to week and failed analyses stay rare. |
+| **Credit endpoints** (balance, history, feature cost; free) | server | Budget caps without a database: a pace line to the end of judging plus a daily ceiling. |
+
+SD and HD are never mixed: a trial locks to HD when its day 0 photos are large enough, SD
+otherwise, and every later photo must match.
+
+## Why raw_score and not ui_score
+
+YouCam returns two numbers per concern. Its documentation describes `ui_score` as adjusted to be
+more favorable for display. A verdict built on a number shifted toward "good" would flatter the
+product. Verdict judges only on `raw_score`; `ui_score` is stored for reference and never shown
+as evidence.
+
+## The noise threshold method
+
+- Day 0: photos A and B, taken one after the other. Noise per concern = |A − B|.
+- Threshold = max(k × noise, floor for that concern). The floor stops an identical pair from
+  making every wobble look significant.
+- Baseline = mean(A, B). Change = latest check-in − baseline, signed so positive means toward
+  what the claim promised (the direction of each raw score is fixed from calibration).
+- A claim is Holding up only when the change is strictly beyond the threshold toward the claim,
+  Getting worse when strictly beyond it the other way, and No measurable change otherwise.
+- k, the floors and each concern's raw score direction: pending calibration
+  (`src/lib/measure/config.ts` stays empty until then, and the app refuses to show results
+  rather than guess).
+
+## What we learned from the API
+
+Pending: variability between identical captures, measured with `scripts/` on the author's photos
+(A vs B back to back, A vs C after repositioning), cost per analysis, and the raw score direction
+of each concern.
+
+Already learned while building:
+
+- The task endpoint the official skill uses is v2.1, while the brief referenced v2.0.
+- Uploaded files and task ids are kept 30 days (File Retention Period page), while the Skin
+  Analysis page describes results as kept 24 hours. The privacy page quotes both, with links.
+- The Camera Kit's capture size depends on its container and `videoQuality`; HD needs a short
+  side of 1080 px.
+
+## Run it locally
+
+```
+npm install
+cp .env.example .env.local   # then fill in the values
+npm run dev
+npm test        # unit tests
+npm run e2e     # Playwright, mobile and desktop
+```
+
+Calibration scripts (Node 20+, no dependencies) are documented in `scripts/README.md`.
+
+## Environment variables
+
+| Name | What |
+|---|---|
+| `YOUCAM_API_KEY` | YouCam API key (server only) |
+| `ANTHROPIC_API_KEY` | Anthropic API key for label reading (server only) |
+| `VERDICT_COOKIE_SECRET` | 32+ random characters, signs the per device quota cookie |
+| `BUDGET_UNIT_COST` | units per analysis, measured in calibration |
+| `BUDGET_LAUNCH_BALANCE`, `BUDGET_RESERVE`, `BUDGET_DAILY_MAX` | pace line and daily ceiling |
+| `BUDGET_START`, `BUDGET_END` | start and end of the pace line (end of judging) |
+
+## Privacy
+
+Face photos are stored in the browser (IndexedDB), sent only to YouCam for analysis, and never
+stored by Verdict. Label photos go to Anthropic. No account. One action deletes everything.
+Details: `/privacy`.
+
+## License
+
+MIT, see [LICENSE](LICENSE).

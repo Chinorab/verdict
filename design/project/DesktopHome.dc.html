@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Verdict home, desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F4F1}
+*{box-sizing:border-box}
+a{color:#2B45C4}a:hover{color:#1C2F8F}
+a:focus-visible,button:focus-visible{outline:2px solid #2B45C4;outline-offset:2px}
+.num{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.rise{animation:rise .7s cubic-bezier(.16,1,.3,1) both}
+.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.35s}
+@keyframes band{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.band{transform-origin:center;animation:band .8s cubic-bezier(.16,1,.3,1) .5s both}
+@keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.mark{animation:drop .5s cubic-bezier(.16,1,.3,1) .9s both}
+.cta{transition:background-color .2s ease}
+.cta:hover{background-color:#2A2F2D;color:#F3F4F1}
+.cta svg{transition:transform .2s cubic-bezier(.16,1,.3,1)}
+.cta:hover svg{transform:translateX(3px)}
+.navlink{color:#333937;text-decoration:none}.navlink:hover{color:#141716;text-decoration:underline;text-underline-offset:4px}
+@media (prefers-reduced-motion:reduce){.rise,.band,.mark{animation:none}.cta,.cta svg{transition:none}}
+</style>
+</helmet>
+<div style="background: #F3F4F1; color: #141716; font-family: 'Hanken Grotesk', 'Helvetica Neue', sans-serif; min-height: 1760px">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 48px)">
+<header style="min-height: 72px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; border-bottom: 1px solid #D3D7D2">
+<a href="DesktopHome.dc.html" aria-label="Verdict home" style="display: flex; align-items: center; gap: 10px; color: #141716; text-decoration: none; min-height: 44px">
+<svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#141716"></rect><path d="M9 7.5l7 14 7-14" fill="none" stroke="#F3F4F1" stroke-width="3" stroke-linecap="square"></path><path d="M8 26h16" stroke="#7C93FF" stroke-width="2.5"></path></svg>
+<span style="font-size: 19px; font-weight: 600; letter-spacing: -0.2px">Verdict</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-size: 15px">
+<a class="navlink" href="#how">How it works</a>
+<a class="navlink" href="Privacy.dc.html">Privacy</a>
+<a class="cta" href="Scan.dc.html" style="height: 44px; padding: 0 18px; background: #141716; color: #F3F4F1; text-decoration: none; display: flex; align-items: center; gap: 10px; font-weight: 500">Start a trial<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg></a>
+</nav>
+</header>
+<section style="padding: 80px 0 96px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr)); gap: 64px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<h1 class="rise" style="margin: 0; font-size: clamp(38px, 4.6vw, 62px); line-height: 1.06; font-weight: 300; letter-spacing: -2px; text-wrap: balance">Find out if it works on your skin before the return window closes.</h1>
+<p class="rise d1" style="margin: 0; font-size: 19px; line-height: 1.5; color: #4D5450; max-width: 46ch">Scan the label. Photograph your skin on a schedule. Get a result for each claim, next to the measurement error.</p>
+<div class="rise d2" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin-top: 8px">
+<a class="cta" href="Scan.dc.html" style="height: 56px; padding: 0 22px; background: #141716; color: #F3F4F1; text-decoration: none; display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 500">Start a trial<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg></a>
+<a href="Privacy.dc.html" style="display: flex; align-items: center; gap: 8px; font-size: 15px; color: #4D5450; text-decoration: none; min-height: 44px"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="9" width="12" height="8"></rect><path d="M7 9V6.5a3 3 0 0 1 6 0V9"></path></svg>Face photos stay on your phone</a>
+</div>
+</div>
+<figure class="rise d3" style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="background: #FBFBF9; border: 1px solid #141716; padding: 28px clamp(18px, 3vw, 32px)">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid #141716">
+<span style="font-size: 17px; font-weight: 500">Brightening Serum</span>
+<span class="num" style="font-size: 12px; color: #5F6662">Day 26</span>
+</div>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="3">
+<div style="padding: 16px 0; border-bottom: 1px solid #D3D7D2; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+<span style="font-size: 15px">{{r.quote}}</span>
+<span style="{{r.statusStyle}}">{{r.status}}</span>
+</div>
+<div role="img" aria-label="{{r.aria}}" style="position: relative; height: 26px">
+<div style="position: absolute; left: 0; right: 0; top: 12px; height: 1px; background: #B9BEB9"></div>
+<div class="band" style="{{r.bandStyle}}"></div>
+<div style="position: absolute; left: 50%; top: 6px; width: 1px; height: 13px; background: #6B716D"></div>
+<div class="mark" style="{{r.markStyle}}"></div>
+</div>
+</div>
+</sc-for>
+</div>
+<figcaption style="font-size: 13px; color: #5F6662">Example result with sample data. Yours comes from your own photos.</figcaption>
+</figure>
+</section>
+<section aria-label="Context" style="border-top: 1px solid #141716; padding: 40px 0 88px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 40px 64px">
+<div style="display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start">
+<span class="num" style="font-size: 56px; line-height: 0.9; letter-spacing: -2px">18%</span>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 17px; line-height: 1.45">of the claims in nearly 300 magazine beauty ads were judged acceptable by researchers.</p>
+<a href="https://news.unl.edu/article/research-most-beauty-ad-claims-don-t-hold-up" style="font-size: 13px">Journal of Global Fashion Marketing, via UNL News, 2015</a>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start">
+<span class="num" style="font-size: 56px; line-height: 0.9; letter-spacing: -2px">FDA</span>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 17px; line-height: 1.45">Cosmetics don’t need FDA approval before they go on sale in the US, color additives aside.</p>
+<a href="https://www.fda.gov/cosmetics/consumers/cosmetics-qa-why-are-cosmetics-not-fda-approved" style="font-size: 13px">US Food and Drug Administration, Cosmetics Q&amp;A</a>
+</div>
+</div>
+</section>
+<section id="how" aria-labelledby="how-h" style="padding: 0 0 96px; scroll-margin-top: 24px">
+<h2 id="how-h" style="margin: 0 0 40px; font-size: clamp(30px, 3vw, 42px); line-height: 1.1; font-weight: 300; letter-spacing: -1px">How a trial runs</h2>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 40px 48px; border-top: 1px solid #141716">
+<li style="padding-top: 24px; position: relative; display: flex; flex-direction: column; gap: 10px">
+<span style="position: absolute; top: -6px; left: 0; width: 11px; height: 11px; background: #141716"></span>
+<svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="#141716" stroke-width="1.3" aria-hidden="true"><path d="M3 7V3h4M13 3h4v4M17 13v4h-4M7 17H3v-4"></path><path d="M7 8h6M7 11h4"></path></svg>
+<h3 style="margin: 0; font-size: 20px; font-weight: 500">Scan the label</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4D5450">Each printed claim is matched to something a camera can measure. Claims it can’t check are left out, and we say so.</p>
+</li>
+<li style="padding-top: 24px; position: relative; display: flex; flex-direction: column; gap: 10px">
+<span style="position: absolute; top: -6px; left: 0; width: 11px; height: 11px; background: #141716"></span>
+<svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="#141716" stroke-width="1.3" aria-hidden="true"><rect x="2.5" y="5" width="15" height="11"></rect><circle cx="10" cy="10.5" r="3"></circle><path d="M7 5l1-2h4l1 2"></path></svg>
+<h3 style="margin: 0; font-size: 20px; font-weight: 500">Photograph on schedule</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4D5450">Two photos on day 0 set your noise floor. Checkpoints are placed so the verdict lands before the deadline.</p>
+</li>
+<li style="padding-top: 24px; position: relative; display: flex; flex-direction: column; gap: 10px">
+<span style="position: absolute; top: -6px; left: 0; width: 11px; height: 11px; background: #2B45C4"></span>
+<svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="#141716" stroke-width="1.3" aria-hidden="true"><path d="M4 10.5l4 4 8-9"></path></svg>
+<h3 style="margin: 0; font-size: 20px; font-weight: 500">Keep or return</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4D5450">A result for each claim, a clear suggestion, and the refund at stake. The decision stays yours.</p>
+</li>
+</ol>
+</section>
+<section aria-labelledby="noise-h" style="padding: 64px 0 96px; border-top: 1px solid #D3D7D2; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 48px 80px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<h2 id="noise-h" style="margin: 0; font-size: clamp(30px, 3vw, 42px); line-height: 1.1; font-weight: 300; letter-spacing: -1px; text-wrap: balance">Every reading wobbles. We show by how much.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.55; color: #4D5450; max-width: 52ch">Light, angle and the camera shift a measurement a little every time. Your two day 0 photos measure that wobble. A change counts only when it is more than 1.5 times bigger.</p>
+</div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 18px">
+<div role="img" aria-label="Diagram. A shaded band around zero shows measurement noise. A marker inside the band means no measurable change. A marker well outside it counts as a change." style="position: relative; height: 150px">
+<div style="position: absolute; left: 0; right: 0; top: 74px; height: 1px; background: #8D9490"></div>
+<div class="band" style="position: absolute; left: 38%; width: 24%; top: 56px; height: 37px; background: #D9DDD7"></div>
+<div style="position: absolute; left: 50%; top: 48px; width: 1px; height: 53px; background: #6B716D"></div>
+<div class="mark" style="position: absolute; left: calc(55% - 6px); top: 40px; width: 12px; height: 46px; border-top: 12px solid #4D5450; background: linear-gradient(#4D5450,#4D5450) center / 2px 100% no-repeat"></div>
+<div class="mark" style="position: absolute; left: calc(18% - 6px); top: 40px; width: 12px; height: 46px; border-top: 12px solid #2B45C4; background: linear-gradient(#2B45C4,#2B45C4) center / 2px 100% no-repeat"></div>
+<span style="position: absolute; left: 0; top: 8px; font-size: 13px; color: #2B45C4">Clears the noise: counts</span>
+<span style="position: absolute; left: 52%; top: 8px; font-size: 13px; color: #4D5450">Inside the noise: no change</span>
+<span class="num" style="position: absolute; left: 38%; top: 104px; font-size: 12px; color: #4D5450">your noise band</span>
+<span class="num" style="position: absolute; left: 0; bottom: 0; font-size: 11px; color: #5F6662">Toward the claim</span>
+<span class="num" style="position: absolute; right: 0; bottom: 0; font-size: 11px; color: #5F6662">Away from it</span>
+</div>
+</figure>
+</section>
+<section aria-labelledby="priv-h" style="padding: 48px 0; border-top: 1px solid #141716; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 48px">
+<div style="display: flex; align-items: center; gap: 18px">
+<svg width="30" height="30" viewBox="0 0 20 20" fill="none" stroke="#141716" stroke-width="1.3" aria-hidden="true"><rect x="4" y="9" width="12" height="8"></rect><path d="M7 9V6.5a3 3 0 0 1 6 0V9"></path></svg>
+<h2 id="priv-h" style="margin: 0; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.2; font-weight: 400; letter-spacing: -0.4px">Face photos never leave your phone.</h2>
+</div>
+<a href="Privacy.dc.html" style="font-size: 16px; min-height: 44px; display: flex; align-items: center; gap: 8px">Read how data is handled<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg></a>
+</section>
+<footer style="padding: 28px 0 40px; border-top: 1px solid #D3D7D2; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; font-size: 14px; color: #4D5450">
+<span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 9v5M10 6.2v.1"></path></svg>Indicative results, not medical advice.</span>
+<nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 8px 24px">
+<a class="navlink" href="Privacy.dc.html">Privacy</a>
+<a class="navlink" href="mailto:hello@example.com">Contact</a>
+<span>© 2026 [legal entity]</span>
+</nav>
+</footer>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1760}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const colors = { up: '#2B45C4', flat: '#4D5450', down: '#B4460E' };
+    const rows = [
+      { quote: '“Fades dark spots in 4 weeks”', kind: 'flat', status: 'No measurable change', dot: 43.0, bl: 38.67, bw: 22.67 },
+      { quote: '“Radiant glow”', kind: 'up', status: 'Holding up', dot: 30.33, bl: 42.67, bw: 14.67 },
+      { quote: '“Smoother skin texture”', kind: 'down', status: 'Getting worse', dot: 74.67, bl: 36.67, bw: 26.67 }
+    ].map((r) => {
+      const c = colors[r.kind];
+      return Object.assign({}, r, {
+        statusStyle: 'font-size: 14px; font-weight: 500; color: ' + c,
+        bandStyle: 'position: absolute; top: 6px; height: 13px; background: #D9DDD7; left: ' + r.bl + '%; width: ' + r.bw + '%',
+        markStyle: 'position: absolute; top: 0; width: 10px; height: 24px; left: calc(' + r.dot + '% - 5px); background: linear-gradient(' + c + ',' + c + ') center / 2px 100% no-repeat; border-top: 10px solid ' + c,
+        aria: r.status + ', sample data'
+      });
+    });
+    return { rows };
+  }
+}
+</script>
+</body>
+</html>

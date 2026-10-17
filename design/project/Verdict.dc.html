@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Verdict by claim</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E7E9E5}
+*{box-sizing:border-box}
+a{color:#2B45C4}a:hover{color:#1C2F8F}
+a:focus-visible,button:focus-visible{outline:2px solid #2B45C4;outline-offset:2px}
+.num{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.rise{animation:rise .6s cubic-bezier(.16,1,.3,1) both}
+.d1{animation-delay:.1s}.d2{animation-delay:.2s}
+@keyframes band{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.band{transform-origin:center;animation:band .7s cubic-bezier(.16,1,.3,1) .2s both}
+@keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.mark{animation:drop .5s cubic-bezier(.16,1,.3,1) .6s both}
+.btn{transition:background-color .2s ease,color .2s ease}
+.btn-p:hover{background-color:#2A2F2D}
+.btn-s:hover{background-color:#E3E6E1}
+@media (prefers-reduced-motion:reduce){.rise,.band,.mark{animation:none}.btn{transition:none}}
+</style>
+</helmet>
+<main style="width: 390px; min-height: 1400px; background: #F3F4F1; color: #141716; font-family: 'Hanken Grotesk', 'Helvetica Neue', sans-serif; display: flex; flex-direction: column; padding: 0 24px 28px">
+<header style="height: 64px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; border-bottom: 1px solid #D3D7D2">
+<a href="Timeline.dc.html" aria-label="Back to timeline" style="width: 44px; height: 44px; display: flex; align-items: center; color: #141716"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12.5 4l-6 6 6 6"></path></svg></a>
+<span style="text-align: center; font-size: 15px; font-weight: 500">Verdict</span>
+<span class="num" style="font-size: 12px; color: #5F6662; text-align: right">Day 26</span>
+</header>
+<section style="padding: 28px 0 0; display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; color: #5F6662">Brightening Serum, 30 ml</span>
+<h1 class="rise" style="margin: 0; font-size: 52px; line-height: 1; font-weight: 300; letter-spacing: -2px">Return it.</h1>
+<p class="rise d1" style="margin: 0; font-size: 16px; line-height: 1.5; color: #333937">The main claim, fading dark spots in 4 weeks, showed no change bigger than your measurement noise. Texture got rougher.</p>
+</section>
+<div class="rise d2" style="margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #141716; border-bottom: 1px solid #D3D7D2">
+<div style="padding: 14px 0; display: flex; flex-direction: column; gap: 2px"><span class="num" style="font-size: 26px">$38.00</span><span style="font-size: 13px; color: #5F6662">refund at stake</span></div>
+<div style="padding: 14px 0 14px 16px; border-left: 1px solid #D3D7D2; display: flex; flex-direction: column; gap: 2px"><span class="num" style="font-size: 26px">4 days</span><span style="font-size: 13px; color: #5F6662">left, until Nov 11</span></div>
+</div>
+<div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #2B45C4; display: flex; align-items: center; gap: 6px"><svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.25" aria-hidden="true"><path d="M4 10.5l4 4 8-9"></path></svg>Suggested</span>
+<button type="button" class="btn btn-p" style="height: 56px; background: #141716; color: #F3F4F1; border: 0; font-family: inherit; font-size: 16px; font-weight: 500; cursor: pointer">Return</button>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: transparent" aria-hidden="true">.</span>
+<button type="button" class="btn btn-s" style="height: 56px; background: transparent; color: #141716; border: 1px solid #141716; font-family: inherit; font-size: 16px; font-weight: 500; cursor: pointer">Keep</button>
+</div>
+</div>
+<p style="margin: 12px 0 0; font-size: 13px; line-height: 1.5; color: #5F6662">Your call. Verdict only reports what it measured.</p>
+<section aria-labelledby="claims-h" style="margin-top: 36px">
+<h2 id="claims-h" style="margin: 0; font-size: 20px; font-weight: 500">By claim</h2>
+<div style="margin: 12px 0 4px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 12px; color: #4D5450">
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 18px; height: 10px; background: #D9DDD7; display: block"></span>Your noise</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 8px; height: 8px; background: #141716; display: block"></span>Change since day 0</span>
+</div>
+<p style="margin: 0 0 8px; font-size: 12px; line-height: 1.5; color: #5F6662">A change counts when it is more than 1.5 times your day 0 noise.</p>
+<sc-for list="{{claims}}" as="c" hint-placeholder-count="4">
+<article style="padding: 18px 0; border-top: 1px solid #D3D7D2; display: flex; flex-direction: column; gap: 8px">
+<h3 style="margin: 0; font-size: 16px; line-height: 1.35; font-weight: 500">{{c.quote}}</h3>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="{{c.statusStyle}}">
+<sc-if value="{{c.up}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10.5l4 4 8-9"></path></svg></sc-if>
+<sc-if value="{{c.flat}}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4.5 10h11"></path></svg></sc-if>
+<sc-if value="{{c.down}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 15L15 5M8 5h7v7"></path></svg></sc-if>
+{{c.status}}
+</span>
+<span class="num" style="font-size: 13px; color: #141716">{{c.ratio}}</span>
+</div>
+<p class="num" style="margin: 0; font-size: 12px; color: #4D5450">{{c.detail}}</p>
+<div role="img" aria-label="{{c.aria}}" style="position: relative; height: 34px; margin-top: 4px">
+<div style="position: absolute; left: 0; right: 0; top: 16px; height: 1px; background: #B9BEB9"></div>
+<div class="band" style="{{c.bandStyle}}"></div>
+<div style="position: absolute; left: 50%; top: 9px; width: 1px; height: 15px; background: #6B716D"></div>
+<div class="mark" style="{{c.markStyle}}"></div>
+</div>
+<div class="num" style="display: flex; justify-content: space-between; font-size: 10px; color: #5F6662"><span>Toward the claim</span><span>Away from it</span></div>
+</article>
+</sc-for>
+<article style="padding: 18px 0; border-top: 1px solid #D3D7D2; display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-size: 16px; line-height: 1.35; font-weight: 500; color: #5F6662">“72 hour hydration”</h3>
+<span style="font-size: 14px; color: #5F6662">Not measured. A photo can’t check this one.</span>
+</article>
+</section>
+<div style="margin-top: 12px; border-top: 1px solid #141716; display: flex; flex-direction: column">
+<a href="Compare.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: space-between; color: #141716; text-decoration: none; font-size: 15px; border-bottom: 1px solid #D3D7D2">Compare photos<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg></a>
+<a href="Review.dc.html" style="min-height: 52px; display: flex; align-items: center; justify-content: space-between; color: #141716; text-decoration: none; font-size: 15px; border-bottom: 1px solid #D3D7D2">Share my measured review<svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg></a>
+</div>
+<p style="margin: 20px 0 0; font-size: 12px; line-height: 1.5; color: #5F6662">Indicative results, not medical advice. Measured from photos of your skin taken under matched light.</p>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const colors = { up: '#2B45C4', flat: '#4D5450', down: '#B4460E' };
+    const rows = [
+      { quote: '“Fades dark spots in 4 weeks”', kind: 'flat', status: 'No measurable change', ratio: '0.6× noise', detail: 'Spot area −2.1%, noise ±3.4%', dot: 43.0, bl: 38.67, bw: 22.67 },
+      { quote: '“Radiant glow”', kind: 'up', status: 'Holding up', ratio: '2.7× noise', detail: 'Brightness evenness +5.9%, noise ±2.2%', dot: 30.33, bl: 42.67, bw: 14.67 },
+      { quote: '“Visibly reduces redness”', kind: 'flat', status: 'No measurable change', ratio: '0.4× noise', detail: 'Redness index +1.1%, noise ±2.8%', dot: 53.67, bl: 40.67, bw: 18.67 },
+      { quote: '“Smoother skin texture”', kind: 'down', status: 'Getting worse', ratio: '1.9× noise', detail: 'Roughness +7.4%, noise ±4.0%', dot: 74.67, bl: 36.67, bw: 26.67 }
+    ];
+    const claims = rows.map((r) => {
+      const c = colors[r.kind];
+      return Object.assign({}, r, {
+        up: r.kind === 'up', flat: r.kind === 'flat', down: r.kind === 'down',
+        statusStyle: 'display: flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 500; color: ' + c,
+        bandStyle: 'position: absolute; top: 10px; height: 13px; background: #D9DDD7; left: ' + r.bl + '%; width: ' + r.bw + '%',
+        markStyle: 'position: absolute; top: 4px; width: 10px; height: 26px; left: calc(' + r.dot + '% - 5px); background: linear-gradient(' + c + ',' + c + ') center / 2px 100% no-repeat; border-top: 10px solid ' + c,
+        aria: r.status + '. ' + r.detail
+      });
+    });
+    return { claims };
+  }
+}
+</script>
+</body>
+</html>

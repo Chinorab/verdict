@@ -1,0 +1,117 @@
+.notice {
+  margin-top: 20px;
+  padding: 20px 0 22px;
+  border-top: 3px solid var(--deadline);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.icon {
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--deadline);
+  color: var(--deadline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  font-size: 26px;
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+.titleCalm {
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 500;
+}
+.body {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.advice {
+  font-size: 15px;
+  line-height: 1.5;
+}
+.small {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--text-3);
+}
+.readings {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border-top: 1px solid var(--line-strong);
+  font-size: 13px;
+}
+.readings dt {
+  padding: 10px 16px 10px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--text-3);
+}
+.readings dd {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.worse {
+  color: var(--deadline);
+}
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.primary {
+  height: 54px;
+  background: var(--ink);
+  color: var(--on-ink);
+  border: 0;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.secondary {
+  height: 54px;
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.secondary:hover {
+  color: var(--text);
+  background: var(--accent-soft);
+}
+.text {
+  min-height: var(--target);
+  background: none;
+  border: 0;
+  font-size: 15px;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.compact {
+  margin-top: 20px;
+  padding: 12px 0;
+  border-top: 2px solid var(--deadline);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.compact svg {
+  color: var(--deadline);
+}

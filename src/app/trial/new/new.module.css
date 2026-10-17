@@ -1,0 +1,355 @@
+/* New trial flow, from design/project/Scan.dc.html and Claims.dc.html */
+
+.main {
+  padding: 0 var(--gutter) 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro {
+  padding: 28px 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.h1 {
+  font-size: var(--fs-h1);
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+.lead {
+  font-size: var(--fs-body);
+  color: var(--text-2);
+}
+
+/* Scan step: dark viewfinder with corner marks */
+.finder {
+  position: relative;
+  height: 380px;
+  background: var(--cam-surface);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cam-text-2);
+}
+.corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: var(--cam-text);
+  border-style: solid;
+  border-width: 0;
+  pointer-events: none;
+}
+.tl {
+  left: 20px;
+  top: 20px;
+  border-left-width: 2px;
+  border-top-width: 2px;
+}
+.tr {
+  right: 20px;
+  top: 20px;
+  border-right-width: 2px;
+  border-top-width: 2px;
+}
+.bl {
+  left: 20px;
+  bottom: 20px;
+  border-left-width: 2px;
+  border-bottom-width: 2px;
+}
+.br {
+  right: 20px;
+  bottom: 20px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+}
+.preview {
+  max-width: calc(100% - 96px);
+  max-height: calc(100% - 96px);
+  object-fit: contain;
+}
+.finderHint {
+  max-width: 220px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.sweep {
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  top: 40px;
+  height: 1px;
+  background: var(--accent-mark);
+  animation: sweep 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+@keyframes sweep {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(300px);
+    opacity: 0;
+  }
+}
+
+.status {
+  margin: 14px 0 0;
+  min-height: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+}
+.statusOk {
+  color: var(--text);
+}
+.statusOk svg {
+  color: var(--accent);
+  flex: none;
+}
+.statusError {
+  color: var(--deadline);
+}
+
+.controls {
+  margin-top: auto;
+  padding-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+.textButton {
+  min-height: var(--target);
+  padding: 0;
+  background: none;
+  border: 0;
+  font-size: 14px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.textButton:last-child {
+  justify-self: end;
+}
+.shutter {
+  width: 76px;
+  height: 76px;
+  border: 2px solid var(--ink);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  transition: transform var(--dur-fast) ease;
+}
+.shutter span {
+  width: 60px;
+  height: 60px;
+  background: var(--ink);
+  display: block;
+}
+.shutter:active {
+  transform: scale(0.96);
+}
+.shutter:disabled {
+  opacity: 0.4;
+  cursor: progress;
+}
+
+/* Claims step */
+.meta {
+  font-size: var(--fs-small);
+  color: var(--text-3);
+}
+.productRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.section {
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.h2 {
+  font-size: var(--fs-h2);
+  font-weight: 500;
+}
+.claimList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.claim {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.claimText {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.claimMuted .claimText {
+  color: var(--text-3);
+}
+.mapping {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-2);
+}
+.mapping svg {
+  color: var(--accent);
+  flex: none;
+}
+.claimMuted .mapping svg {
+  color: var(--text-3);
+}
+.claimActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  align-items: center;
+}
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--target);
+  font-size: 14px;
+  cursor: pointer;
+}
+.radio input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  margin: 0;
+}
+.link {
+  min-height: var(--target);
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--accent);
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* Inline claim editor */
+.editor {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line-field);
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+}
+.chip[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--on-ink);
+  border-color: var(--ink);
+}
+.editorRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.price {
+  position: relative;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--target);
+  font-size: 15px;
+  cursor: pointer;
+}
+.check input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+  margin: 0;
+}
+
+.callout {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.callout strong {
+  font-weight: 500;
+}
+.warning {
+  color: var(--deadline);
+}
+.small {
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  color: var(--text-3);
+}
+.ctaWrap {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.formError {
+  font-size: 14px;
+  color: var(--deadline);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sweep {
+    animation: none;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "product": { "name": "[Product name as printed]", "size": "[e.g. 30 ml]" },
+  "maxTrialDays": 14,
+  "purchase": { "price": 0, "date": "[YYYY-MM-DD]", "retailer": "[store]", "online": false, "returnDays": 30 },
+  "claims": [
+    {
+      "text": "[Claim exactly as printed]",
+      "timeframeDays": 28,
+      "targets": [{ "concern": "age_spot", "direction": "decrease" }],
+      "main": true,
+      "healthTerms": ["dark_spots"],
+      "fastPromise": true
+    },
+    {
+      "text": "[A claim a photo cannot check]",
+      "targets": [],
+      "unmeasurableReason": "Photos taken days apart cannot check an effect that lasts hours."
+    }
+  ]
+}

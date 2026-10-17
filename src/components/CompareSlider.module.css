@@ -1,0 +1,74 @@
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--cam-surface);
+  touch-action: pan-y;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+}
+.layer img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.mask {
+  opacity: 0.75;
+}
+.left {
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+}
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--pos) - 1px);
+  width: 2px;
+  background: var(--paper);
+  pointer-events: none;
+}
+.handle {
+  position: absolute;
+  top: calc(50% - 22px);
+  left: calc(var(--pos) - 16px);
+  width: 32px;
+  height: 44px;
+  background: var(--paper);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  color: var(--cam-text-2);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: var(--fs-micro);
+  color: var(--text-2);
+}
+.range {
+  width: 100%;
+  margin: 10px 0 4px;
+  height: var(--target);
+  accent-color: var(--ink);
+  cursor: ew-resize;
+}

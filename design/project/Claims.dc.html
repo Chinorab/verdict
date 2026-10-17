@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>New trial, claims and purchase</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E7E9E5}
+*{box-sizing:border-box}
+a{color:#2B45C4}a:hover{color:#1C2F8F}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #2B45C4;outline-offset:2px}
+.num{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+input::placeholder{color:#6B716D}
+.seg{transition:background-color .2s ease,color .2s ease}
+.cta{transition:background-color .2s ease}
+.cta:hover{background-color:#2A2F2D;color:#F3F4F1}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.rise{animation:rise .5s cubic-bezier(.16,1,.3,1) both}
+.r2{animation-delay:.06s}.r3{animation-delay:.12s}.r4{animation-delay:.18s}.r5{animation-delay:.24s}
+@media (prefers-reduced-motion:reduce){.rise{animation:none}.seg,.cta{transition:none}}
+</style>
+</helmet>
+<main style="width: 390px; min-height: 1260px; background: #F3F4F1; color: #141716; font-family: 'Hanken Grotesk', 'Helvetica Neue', sans-serif; display: flex; flex-direction: column; padding: 0 24px 32px">
+<header style="height: 64px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; border-bottom: 1px solid #D3D7D2">
+<a href="Scan.dc.html" aria-label="Back" style="width: 44px; height: 44px; display: flex; align-items: center; color: #141716"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12.5 4l-6 6 6 6"></path></svg></a>
+<span style="text-align: center; font-size: 15px; font-weight: 500">New trial</span>
+<span class="num" style="font-size: 12px; color: #5F6662; text-align: right">2/3</span>
+</header>
+<section style="padding: 28px 0 8px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: #5F6662">Product</span>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px">
+<h1 style="margin: 0; font-size: 26px; line-height: 1.15; font-weight: 400; letter-spacing: -0.5px">Brightening Serum</h1>
+<a href="#" style="font-size: 14px; min-height: 44px; display: flex; align-items: center">Edit</a>
+</div>
+<span class="num" style="font-size: 12px; color: #5F6662">30 ml, read from the label</span>
+</section>
+<section aria-labelledby="claims-h" style="padding-top: 24px">
+<h2 id="claims-h" style="margin: 0 0 4px; font-size: 18px; font-weight: 500">What it promises, and how we check</h2>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<li class="rise" style="padding: 16px 0; border-bottom: 1px solid #D3D7D2; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 16px; font-weight: 500; line-height: 1.35">“Fades dark spots in 4 weeks”</span>
+<span style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #4D5450"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#2B45C4" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg>Dark spot area, judged at day 26</span>
+</li>
+<li class="rise r2" style="padding: 16px 0; border-bottom: 1px solid #D3D7D2; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 16px; font-weight: 500; line-height: 1.35">“Visibly reduces redness”</span>
+<span style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #4D5450"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#2B45C4" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg>Redness index, cheeks and nose</span>
+</li>
+<li class="rise r3" style="padding: 16px 0; border-bottom: 1px solid #D3D7D2; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 16px; font-weight: 500; line-height: 1.35">“Smoother skin texture”</span>
+<span style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #4D5450"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#2B45C4" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg>Texture and visible pores</span>
+</li>
+<li class="rise r4" style="padding: 16px 0; border-bottom: 1px solid #D3D7D2; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 16px; font-weight: 500; line-height: 1.35">“Radiant glow”</span>
+<span style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #4D5450"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#2B45C4" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg>Brightness and evenness</span>
+</li>
+<li class="rise r5" style="padding: 16px 0; border-bottom: 1px solid #D3D7D2; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 16px; font-weight: 500; line-height: 1.35; color: #5F6662">“72 hour hydration”</span>
+<span style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #5F6662"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="7"></circle><path d="M5 15L15 5"></path></svg>A photo can’t measure this. Left out of the verdict.</span>
+</li>
+</ol>
+</section>
+<section aria-labelledby="buy-h" style="padding-top: 36px; display: flex; flex-direction: column; gap: 20px">
+<h2 id="buy-h" style="margin: 0; font-size: 18px; font-weight: 500">Purchase</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="price" style="font-size: 13px; color: #4D5450">Price paid</label>
+<div style="height: 48px; border: 1px solid #9DA39F; background: #FBFBF9; display: flex; align-items: center; padding: 0 12px; gap: 4px">
+<span class="num" style="font-size: 15px; color: #5F6662">$</span>
+<input id="price" name="price" inputmode="decimal" autocomplete="off" class="num" value="38.00" style="border: 0; outline-offset: 6px; background: transparent; font-size: 15px; width: 100%; color: #141716; padding: 0">
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="date" style="font-size: 13px; color: #4D5450">Bought on</label>
+<input id="date" name="purchase-date" autocomplete="off" class="num" value="10/12/2026" style="height: 48px; border: 1px solid #9DA39F; background: #FBFBF9; padding: 0 12px; font-size: 15px; color: #141716">
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="store" style="font-size: 13px; color: #4D5450">Retailer</label>
+<input id="store" name="retailer" autocomplete="off" placeholder="Store or website…" style="height: 48px; border: 1px solid #9DA39F; background: #FBFBF9; padding: 0 12px; font: inherit; font-size: 15px; color: #141716">
+</div>
+<fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+<legend style="font-size: 13px; color: #4D5450; padding: 0; margin-bottom: 8px">Return window, in days</legend>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid #141716">
+<sc-for list="{{windows}}" as="w" hint-placeholder-count="4">
+<button type="button" class="seg num" aria-pressed="{{w.pressed}}" onClick="{{w.pick}}" style="{{w.style}}">{{w.days}}</button>
+</sc-for>
+</div>
+</fieldset>
+<div aria-live="polite" style="display: grid; grid-template-columns: 20px 1fr; gap: 10px; padding: 16px 0; border-top: 1px solid #141716; border-bottom: 1px solid #D3D7D2">
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#141716" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 5.5V10l3 2"></path></svg>
+<p style="margin: 0; font-size: 15px; line-height: 1.5">Return by <strong class="num" style="font-weight: 500">{{deadline}}</strong>. Your verdict is scheduled for <strong class="num" style="font-weight: 500">{{verdictDate}}</strong>, {{margin}} days before.</p>
+</div>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #5F6662">Check the retailer’s policy. Some only accept unopened products.</p>
+</section>
+<a class="cta" href="Capture.dc.html" style="margin-top: 32px; height: 56px; padding: 0 20px; background: #141716; color: #F3F4F1; text-decoration: none; display: flex; align-items: center; justify-content: space-between; font-size: 16px; font-weight: 500">Start day 0 photos<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 10h12.5M11 5l5 5-5 5"></path></svg></a>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1260}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const picked = (this.state && this.state.days) || 30;
+    const start = new Date(2026, 9, 12);
+    const fmt = (d) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const margin = picked <= 14 ? 2 : 4;
+    const deadline = new Date(start); deadline.setDate(start.getDate() + picked);
+    const verdict = new Date(deadline); verdict.setDate(deadline.getDate() - margin);
+    const base = 'height: 48px; border: 0; font-size: 15px; cursor: pointer; ';
+    const windows = [14, 30, 60, 90].map((d, i) => ({
+      days: String(d),
+      pressed: d === picked ? 'true' : 'false',
+      pick: () => this.setState({ days: d }),
+      style: base + (i > 0 ? 'border-left: 1px solid #141716; ' : '') + (d === picked ? 'background: #141716; color: #F3F4F1;' : 'background: transparent; color: #141716;')
+    }));
+    return { windows, deadline: fmt(deadline), verdictDate: fmt(verdict), margin };
+  }
+}
+</script>
+</body>
+</html>

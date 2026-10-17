@@ -1,0 +1,195 @@
+/* Shared primitives, measured from design/project mockups. */
+
+/* Header: 64px, hairline below, back, centered title, right slot */
+.header {
+  height: var(--header-h);
+  display: grid;
+  grid-template-columns: var(--target) 1fr var(--target);
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding: 0 var(--gutter);
+  margin: 0;
+}
+.headerBack {
+  width: var(--target);
+  height: var(--target);
+  display: flex;
+  align-items: center;
+  color: var(--text);
+}
+.headerTitle {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.headerRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: var(--fs-micro);
+  color: var(--text-3);
+}
+
+/* Primary CTA: square, ink fill, label left, arrow right */
+.cta {
+  height: var(--cta-h);
+  padding: 0 20px;
+  width: 100%;
+  background: var(--ink);
+  color: var(--on-ink);
+  border: 0;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color var(--dur) ease,
+    transform var(--dur-fast) ease;
+}
+.cta:hover {
+  background: var(--ink-hover);
+  color: var(--on-ink);
+}
+.cta:active {
+  transform: translateY(1px);
+}
+.cta:disabled,
+.cta[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.cta svg {
+  flex: none;
+  transition: transform var(--dur) var(--ease-out);
+}
+.cta:hover svg {
+  transform: translateX(3px);
+}
+.ctaCompact {
+  height: var(--field-h);
+  padding: 0 16px;
+  font-size: 15px;
+}
+
+/* Secondary: outlined, same shape */
+.secondary {
+  height: var(--field-h);
+  padding: 0 16px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+.secondary:hover {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+/* Segmented control: 1px ink frame, pressed cell filled */
+.segmented {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.segLegend {
+  font-size: var(--fs-small);
+  color: var(--text-2);
+  padding: 0;
+  margin-bottom: 8px;
+}
+.segRow {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  border: 1px solid var(--line-strong);
+}
+.segBtn {
+  height: var(--field-h);
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 15px;
+  cursor: pointer;
+  transition:
+    background-color var(--dur) ease,
+    color var(--dur) ease;
+}
+.segBtn + .segBtn {
+  border-left: 1px solid var(--line-strong);
+}
+.segBtn[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+
+/* Field: label above, 48px input */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fieldLabel {
+  font-size: var(--fs-small);
+  color: var(--text-2);
+}
+.fieldInput {
+  height: var(--field-h);
+  border: 1px solid var(--line-field);
+  background: var(--field);
+  padding: 0 12px;
+  font-size: 15px;
+  width: 100%;
+}
+.fieldInput::placeholder {
+  color: var(--text-4);
+}
+.fieldHint {
+  font-size: var(--fs-micro);
+  color: var(--text-3);
+}
+.fieldError {
+  font-size: var(--fs-micro);
+  color: var(--deadline);
+}
+
+/* Disclaimer: info icon, small grey line */
+.disclaimer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-micro);
+  color: var(--text-3);
+  padding: 14px 0 22px;
+}
+
+/* Same day test badge: outlined, mono, never a pill */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.4;
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Privacy</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E7E9E5}
+*{box-sizing:border-box}
+a{color:#2B45C4}a:hover{color:#1C2F8F}
+a:focus-visible,button:focus-visible{outline:2px solid #2B45C4;outline-offset:2px}
+.num{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+.del{transition:background-color .2s ease}
+.del:hover{background-color:#F6E6DC}
+@media (prefers-reduced-motion:reduce){.del{transition:none}}
+</style>
+</helmet>
+<main style="width: 390px; min-height: 1320px; background: #F3F4F1; color: #141716; font-family: 'Hanken Grotesk', 'Helvetica Neue', sans-serif; display: flex; flex-direction: column; padding: 0 24px 28px">
+<header style="height: 64px; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; border-bottom: 1px solid #D3D7D2">
+<a href="Main.dc.html" aria-label="Back" style="width: 44px; height: 44px; display: flex; align-items: center; color: #141716"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12.5 4l-6 6 6 6"></path></svg></a>
+<span style="text-align: center; font-size: 15px; font-weight: 500">Privacy</span>
+<span></span>
+</header>
+<section style="padding: 32px 0 28px; display: flex; flex-direction: column; gap: 14px">
+<h1 style="margin: 0; font-size: 34px; line-height: 1.1; font-weight: 300; letter-spacing: -0.9px">Your face photos stay on this phone.</h1>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: #333937">Measurements run on the device. Photos are kept inside the app, out of your camera roll, and are never sent to our servers.</p>
+</section>
+<section aria-labelledby="p1" style="padding: 20px 0; border-top: 1px solid #141716; display: grid; grid-template-columns: 24px 1fr; gap: 12px">
+<svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#141716" stroke-width="1.5" aria-hidden="true"><rect x="5.5" y="2.5" width="9" height="15"></rect><path d="M9 15h2"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 id="p1" style="margin: 0; font-size: 17px; font-weight: 500">Only on your device</h2>
+<ul style="margin: 0; padding: 0 0 0 16px; font-size: 15px; line-height: 1.6; color: #333937"><li>Face photos</li><li>Detection overlays</li><li>Raw measurements</li></ul>
+</div>
+</section>
+<section aria-labelledby="p2" style="padding: 20px 0; border-top: 1px solid #D3D7D2; display: grid; grid-template-columns: 24px 1fr; gap: 12px">
+<svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#141716" stroke-width="1.5" aria-hidden="true"><path d="M5.5 15.5a3.5 3.5 0 0 1-.5-7 5 5 0 0 1 9.7-1A4 4 0 0 1 14.5 15.5z"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 id="p2" style="margin: 0; font-size: 17px; font-weight: 500">Synced, only with an account</h2>
+<ul style="margin: 0; padding: 0 0 0 16px; font-size: 15px; line-height: 1.6; color: #333937"><li>Product name and claims</li><li>Trial dates and return deadline</li><li>Result per claim, as numbers</li></ul>
+</div>
+</section>
+<section aria-labelledby="p3" style="padding: 20px 0; border-top: 1px solid #D3D7D2; display: grid; grid-template-columns: 24px 1fr; gap: 12px">
+<svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#141716" stroke-width="1.5" aria-hidden="true"><path d="M8.5 11.5a3.5 3.5 0 0 0 5 0l2.5-2.5a3.5 3.5 0 0 0-5-5l-1 1"></path><path d="M11.5 8.5a3.5 3.5 0 0 0-5 0L4 11a3.5 3.5 0 0 0 5 5l1-1"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 id="p3" style="margin: 0; font-size: 17px; font-weight: 500">Shared, only when you choose</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #333937">Your measured review. Numbers only, unless you add photos yourself. Links can be revoked.</p>
+</div>
+</section>
+<section aria-labelledby="p4" style="padding: 20px 0; border-top: 1px solid #D3D7D2; display: grid; grid-template-columns: 24px 1fr; gap: 12px">
+<svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="#141716" stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M4.7 15.3L15.3 4.7"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 id="p4" style="margin: 0; font-size: 17px; font-weight: 500">Never</h2>
+<ul style="margin: 0; padding: 0 0 0 16px; font-size: 15px; line-height: 1.6; color: #333937"><li>Sold, or shared with brands and retailers</li><li>Used to train software</li><li>Used for advertising</li></ul>
+</div>
+</section>
+<section aria-labelledby="p5" style="padding: 24px 0; border-top: 1px solid #141716; display: flex; flex-direction: column; gap: 12px">
+<h2 id="p5" style="margin: 0; font-size: 17px; font-weight: 500">Delete everything</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #4D5450">Removes photos, measurements and your account. We ask you to confirm first. It can’t be undone.</p>
+<button type="button" class="del" style="height: 52px; background: transparent; border: 1px solid #B4460E; color: #9A3A0B; font-family: inherit; font-size: 15px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.5 5.5h13M8 5.5V3.5h4v2M5.5 5.5l.8 11h7.4l.8-11"></path></svg>Delete all trial data</button>
+</section>
+<section style="padding: 20px 0 0; border-top: 1px solid #D3D7D2; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.5; color: #4D5450">
+<span>Questions: <a href="mailto:privacy@example.com">privacy@[your domain]</a></span>
+<span>Operated by [legal entity, address]</span>
+<span class="num" style="font-size: 12px; color: #5F6662">Last updated [date]</span>
+</section>
+<p style="margin: auto 0 0; padding-top: 24px; font-size: 12px; color: #5F6662">Indicative results, not medical advice.</p>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1320}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+.row {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.quote {
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 500;
+}
+.muted .quote,
+.muted .note {
+  color: var(--text-3);
+}
+.note {
+  font-size: 14px;
+}
+.mainTag {
+  font-size: var(--fs-micro);
+  color: var(--text-3);
+}
+.target {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.target + .target {
+  margin-top: 10px;
+}
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.holding_up {
+  color: var(--accent);
+}
+.no_change,
+.missing {
+  color: var(--text-2);
+}
+.getting_worse {
+  color: var(--deadline);
+}
+.ratio {
+  font-size: 13px;
+  color: var(--text);
+}
+.detail {
+  font-size: var(--fs-micro);
+  color: var(--text-2);
+}
+
+/* Noise bar: center = day 0, band = threshold, mark = change. Toward the claim on the left. */
+.bar {
+  position: relative;
+  height: 34px;
+  margin-top: 4px;
+}
+.axis {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 16px;
+  height: 1px;
+  background: var(--line-soft);
+}
+.band {
+  position: absolute;
+  top: 10px;
+  height: 13px;
+  background: var(--line);
+  transform-origin: center;
+  animation: band 0.7s var(--ease-out) 0.2s both;
+}
+.zero {
+  position: absolute;
+  left: 50%;
+  top: 9px;
+  width: 1px;
+  height: 15px;
+  background: var(--text-4);
+}
+.mark {
+  position: absolute;
+  top: 4px;
+  width: 10px;
+  height: 26px;
+  margin-left: -5px;
+  animation: drop 0.5s var(--ease-out) 0.6s both;
+}
+.mark::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+}
+.mark::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  width: 2px;
+  height: 16px;
+  background: currentColor;
+}
+.scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-3);
+}
+@keyframes band {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes drop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

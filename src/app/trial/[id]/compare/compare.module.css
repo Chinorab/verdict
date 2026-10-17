@@ -1,0 +1,114 @@
+.main {
+  padding: 0 var(--gutter) 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.tabs {
+  margin-top: 20px;
+  display: grid;
+  border: 1px solid var(--line-strong);
+}
+.tab {
+  height: var(--target);
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+}
+.tab + .tab {
+  border-left: 1px solid var(--line-strong);
+}
+.tab[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--on-ink);
+}
+.pick {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-2);
+}
+.select {
+  height: var(--target);
+  border: 1px solid var(--line-field);
+  background: var(--field);
+  padding: 0 10px;
+  font-size: 14px;
+}
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  cursor: pointer;
+}
+.toggleRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-micro);
+  color: var(--text-3);
+}
+.toggleRight input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--ink);
+  margin: 0;
+}
+.values {
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid var(--line-strong);
+}
+.grid > div {
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.grid > div + div {
+  padding-left: 12px;
+  border-left: 1px solid var(--line);
+}
+.k {
+  font-size: var(--fs-micro);
+  color: var(--text-3);
+}
+.v {
+  font-size: 22px;
+}
+.noise {
+  font-size: 13px;
+  color: var(--text-2);
+}
+.link {
+  margin-top: 10px;
+  min-height: var(--target);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.empty {
+  padding: 40px 0 0;
+  color: var(--text-2);
+}

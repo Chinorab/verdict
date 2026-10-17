@@ -1,0 +1,64 @@
+.danger {
+  height: 52px;
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--deadline);
+  color: var(--deadline);
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.danger:hover {
+  background: rgb(180 70 14 / 0.06);
+}
+.dialog {
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  color: var(--text);
+  padding: 24px;
+  width: min(420px, calc(100vw - 32px));
+  border-radius: 0;
+  overscroll-behavior: contain;
+}
+.dialog::backdrop {
+  background: rgb(17 20 19 / 0.55);
+}
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+.body {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.actions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dangerSolid {
+  height: var(--cta-h);
+  border: 0;
+  background: var(--deadline);
+  color: var(--on-deadline);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.cancel {
+  height: var(--cta-h);
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
