@@ -61,6 +61,7 @@ speckit-specify FAIT (2026-10-17) : specs/001-measured-skincare-trial/spec.md, c
 - Bug corrigé : la regex de lint-copy bloquait 60 s+ (backtracking catastrophique) → motif linéaire.
 - T083 revue Web Interface Guidelines FAITE + test 360 px.
 - RESTE sans clé/photos : rien d'important ; tout le reste dépend de T001-T006 (photos + clés), T012 (sonde Camera Kit, déploiement preview), T044/T046 (écran capture), puis déploiement.
+- GIT 2026-10-17 : premier commit 4ecdd42 sur main (178 fichiers, aucun secret ni photo), dépôt https://github.com/Chinorab/verdict créé en PRIVÉ (à passer en public avant la soumission : gh repo edit Chinorab/verdict --visibility public --accept-visibility-change-consequences). Identité git locale au dépôt = 196051630+Chinorab@users.noreply.github.com. .gitattributes force LF.
 - EN ATTENTE : T033 (10 étiquettes + clé Anthropic), T038 chemin scan, T028 fixtures.
 - Chromium 1248 installé pour Playwright 1.64. Lancer les e2e contre le serveur dev : E2E_BASE_URL=http://localhost:3762 npx playwright test
 - PARTIEL : T028 (fixtures) → attend la vraie calibration T002.

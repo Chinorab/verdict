@@ -225,7 +225,7 @@ checked on its own.
 - [X] T085 [P] Write DEVPOST.md (Inspiration, What it does, How we built it, YouCam APIs used, Consumer and eCommerce value, Challenges, What's next) plus answers to the three required Devpost questions (three Devpost questions drafted; two wait for calibration and phone tests)
 - [X] T086 [P] Write docs/video-script.md, at most 2 min 30 s, scene by scene with voice over, phone footage, YouCam API explained, no third party brands or copyrighted music
 - [ ] T087 Run `npm test`, `npm run e2e` (mobile and desktop), `npm run lint`, `npm run lint:copy`, and the build secret scan from quickstart.md; fix failures
-- [ ] T088 Create the public GitHub repo Chinorab/verdict, first commit, push (after the author's go ahead)
+- [ ] T088 Create the public GitHub repo Chinorab/verdict, first commit, push (after the author's go ahead) PARTIAL 2026-10-17: repo created PRIVATE and first commit pushed (4ecdd42); switch to public before submission
 - [ ] T089 Deploy to Vercel project verdict with the deploy-to-vercel skill, set env vars, run the e2e suite against the deployment, test on a real phone and time setup (SC-001, under 3 min), day 0 (SC-003, under 4 min, count YouCam rejections after the live check) and a quick run (SC-006, under 10 min); record results in docs/api-notes.md
 - [ ] T090 Capture 5 gallery screenshots (landing, claims, capture, verdict, review card) from the deployment in docs/screenshots/
 - [ ] T091 Update the "Projets & deadlines" dashboard and PROGRESS.md; submission on Devpost only after the author confirms
