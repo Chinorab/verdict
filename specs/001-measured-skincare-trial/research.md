@@ -31,6 +31,19 @@ bundled Claude API skill (TypeScript), npm registry versions.
   captures to its container. The real width and height on a phone are measured before the
   capture screen is built (tasks); if captures are small, set the container width and height
   to the maximum (1920) or fall back to SD for every trial.
+- **Measured 2026-10-23 (T012)** on the author's iPhone (iOS 18.7, Safari, screen 390 x 844 at
+  3x), protected Vercel preview, default container, `skincare`, `videoQuality: "1080p"`,
+  `strict`: the capture is a **1080 x 1788 JPEG** (430 KB), the size reported by the kit equals
+  the decoded size. The kit does not crop to a small square: the short side is exactly the HD
+  minimum, so **every trial is HD** with the default container; the 1080 x 1920 container was
+  not needed. A photo that comes back below 1080 on the short side still falls back to SD
+  through `modeForDay0`.
+- **Finding for the capture screen (T044, T046)**: under ordinary indoor light the strict check
+  reported `{hasFace: true, position: "good", frontal: "good", lighting: "ok"}` and never auto
+  captured; strict waits for `lighting: "good"`. `YMK.capture()` (present on the SDK object,
+  not in the docs) took the photo on demand. The capture screen therefore shows the Light
+  indicator as the thing to fix, and after a wait offers a manual capture once face, position
+  and angle are good, so a dim room does not block the user.
 - **Rationale**: HD and SD actions cannot be mixed in one task, and mixing across sessions
   would make scores incomparable. The HD minimum is 1080 px on the short side.
 - **Alternatives**: always SD (cheaper, less detail); `hdskincare` mode (excludes most phones).
