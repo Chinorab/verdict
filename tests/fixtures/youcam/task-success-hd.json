@@ -1,0 +1,77 @@
+{
+  "status": "success",
+  "results": [
+    {
+      "concern": "eye_bag",
+      "raw": 70.77310681343079,
+      "ui": 77,
+      "maskUrls": []
+    },
+    {
+      "concern": "radiance",
+      "raw": 73.77020716667175,
+      "ui": 78,
+      "maskUrls": []
+    },
+    {
+      "concern": "firmness",
+      "raw": 65.41106104850769,
+      "ui": 74,
+      "maskUrls": []
+    },
+    {
+      "concern": "age_spot",
+      "raw": 65.29313659667969,
+      "ui": 68,
+      "maskUrls": []
+    },
+    {
+      "concern": "oiliness",
+      "raw": 47.14287567138672,
+      "ui": 66,
+      "maskUrls": []
+    },
+    {
+      "concern": "redness",
+      "raw": 67.52935791015625,
+      "ui": 75,
+      "maskUrls": []
+    },
+    {
+      "concern": "dark_circle",
+      "raw": 68.04080903530121,
+      "ui": 72,
+      "maskUrls": []
+    },
+    {
+      "concern": "moisture",
+      "raw": 46.79388999938965,
+      "ui": 69,
+      "maskUrls": []
+    },
+    {
+      "concern": "acne",
+      "raw": 75.16320037841797,
+      "ui": 85,
+      "maskUrls": []
+    },
+    {
+      "concern": "texture",
+      "raw": 56.32156862745098,
+      "ui": 70,
+      "maskUrls": []
+    },
+    {
+      "concern": "pore",
+      "raw": 19.85195541381836,
+      "ui": 54,
+      "maskUrls": []
+    },
+    {
+      "concern": "wrinkle",
+      "raw": 82.51399993896484,
+      "ui": 77,
+      "maskUrls": []
+    }
+  ]
+}

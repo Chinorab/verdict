@@ -81,9 +81,11 @@ account, and browse the author's real trial.
 
 ## Devpost questions
 
-**Was there a moment during the hackathon where the API surprised you?** Pending the calibration
-runs: the variability between two identical captures, and how far `ui_score` sits from
-`raw_score`.
+**Was there a moment during the hackathon where the API surprised you?** How far `ui_score` sits
+from `raw_score`: on the same test face, pores scored 12.5 to 19.9 raw but 51 to 54 on the display
+score. Both always moved in the same direction, so the display score is not wrong, just flattering,
+which is exactly what a keep or return decision cannot afford. We also found that pores and wrinkles
+come back once per face region plus a whole face value, which is useful for a later regional view.
 
 **Are there industries or use cases you think Perfect Corp.'s API could serve that nobody is
 talking about yet?** Consumer protection: return windows, warranty claims and product testing

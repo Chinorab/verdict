@@ -74,8 +74,14 @@ describe("global check", () => {
     expect(globalCheck(cfg, mid, 600, 10, 5)).toEqual({ open: true });
   });
 
-  it("closes when the analysis would cross the pace line", () => {
-    const r = globalCheck(cfg, mid, 502, 10, 5);
+  it("allows the first analysis at the very start of the line", () => {
+    expect(globalCheck(cfg, cfg.start, cfg.launchBalance, 0, 5)).toEqual({ open: true });
+  });
+
+  it("closes when the analysis would cross the pace line (one day of head start included)", () => {
+    // mid: line at 500, head start 80, so the balance may go down to 420
+    expect(globalCheck(cfg, mid, 426, 10, 5)).toEqual({ open: true });
+    const r = globalCheck(cfg, mid, 424, 10, 5);
     expect(r.open).toBe(false);
     if (!r.open) {
       expect(r.reason).toBe("pace");

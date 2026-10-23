@@ -93,10 +93,12 @@ export function globalCheck(
   const tomorrow = nextUtcMidnight(now);
   if (balance - unitCost < cfg.reserve) return { open: false, reason: "reserve", resumesAt: cfg.end };
   if (spentToday + unitCost > cfg.dailyMax) return { open: false, reason: "daily", resumesAt: tomorrow };
-  if (balance - unitCost < paceFloor(cfg, now)) {
-    // When will the line fall below the post spend balance? Solve paceFloor(t) = balance - unitCost.
+  // The line gets one day's ceiling of head start, so spending can begin on day one instead of
+  // waiting for the line to drop below the launch balance (found on the live account, 2026-10-22).
+  if (balance - unitCost < paceFloor(cfg, now) - cfg.dailyMax) {
+    // When will the line fall far enough? Solve paceFloor(t) - dailyMax = balance - unitCost.
     const total = cfg.end.getTime() - cfg.start.getTime();
-    const target = balance - unitCost;
+    const target = balance - unitCost + cfg.dailyMax;
     const frac = (target - cfg.reserve) / Math.max(cfg.launchBalance - cfg.reserve, 1);
     const at = new Date(cfg.end.getTime() - frac * total);
     return { open: false, reason: "pace", resumesAt: at > now ? at : tomorrow };

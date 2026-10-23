@@ -79,23 +79,40 @@ as evidence.
   what the claim promised (the direction of each raw score is fixed from calibration).
 - A claim is Holding up only when the change is strictly beyond the threshold toward the claim,
   Getting worse when strictly beyond it the other way, and No measurable change otherwise.
-- k, the floors and each concern's raw score direction: pending calibration
-  (`src/lib/measure/config.ts` stays empty until then, and the app refuses to show results
-  rather than guess).
+- Raw score directions are measured (below). k = 1.5 and a 1 point floor per concern are design
+  defaults, not yet calibrated on real camera photos; they live in `src/lib/measure/config.ts`
+  with that label. Each person's threshold still comes from their own two day 0 photos.
 
 ## What we learned from the API
 
-Pending: variability between identical captures, measured with `scripts/` on the author's photos
-(A vs B back to back, A vs C after repositioning), cost per analysis, and the raw score direction
-of each concern.
+Measured on 2026-10-22 with `scripts/` against the live API (v2.1, HD, 12 concerns), on three
+**synthetic test faces of a fictional person** (`scripts/photos/synthetic/`): A, B (an edit of A
+"taken one second later") and C (an edit of A "after standing up"). No real person's face was used.
 
-Already learned while building:
-
+- **Cost**: 20 units per HD analysis with 9 to 12 concerns (12 for 1 to 4, 16 for 5 to 8, 22 for
+  13 to 16; SD is 9, 12, 14, 16). Confirmed on the account: 1040 to 980 units for three analyses.
+  Units are only debited on success. Verdict asks only for the concerns a label promises plus
+  redness and acne, usually 12 units.
+- **`raw_score` is a "higher is better" score, like `ui_score`**: across the three faces the two moved
+  in the same direction in 28 of 28 comparisons. So for problem concerns (spots, redness, pores,
+  blemishes, wrinkles, texture, oiliness, dark circles, eye bags) a higher raw score means less of
+  the problem; for hydration, radiance and firmness it means more.
+- **`ui_score` sits well above `raw_score`**, most visibly for pores (raw 12.5 to 19.9, ui 51 to 54)
+  and blemishes (raw 75 to 79, ui 85 to 87), consistent with YouCam describing it as adjusted to be
+  more favorable. Judging on it would flatter the product.
+- **Pores and wrinkles come once per face region** (`region`: forehead, nose, cheek, glabellar,
+  crowfeet, periocular, nasolabial, marionette, and `whole`); Verdict uses `whole`. The output also
+  holds `all` and `skin_age` (a `score`, no `raw_score`) and the resized photo.
+- **Variation between the edited images** ranged from 0.3 points (oiliness) to 9.5 (firmness) and
+  7.3 (pores). This comes from the image generator re rendering skin details, **not** from a camera,
+  so it is not a noise floor; it shows why Verdict measures noise per person instead of assuming one.
+- **Uploads**: the pre signed PUT is required (as documented); the file id then feeds the task.
+- **Credit history** (`/s2s/v1.0/client/credit/history`) answers 415 without a JSON content type even
+  on GET; each analysis appears as `api_skin_analysis_hd_v2` with a negative amount (-20), which is
+  how Verdict caps daily spend without a database.
 - The task endpoint the official skill uses is v2.1, while the brief referenced v2.0.
 - Uploaded files and task ids are kept 30 days (File Retention Period page), while the Skin
   Analysis page describes results as kept 24 hours. The privacy page quotes both, with links.
-- The Camera Kit's capture size depends on its container and `videoQuality`; HD needs a short
-  side of 1080 px.
 
 ## Run it locally
 

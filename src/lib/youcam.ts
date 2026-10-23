@@ -78,25 +78,28 @@ export async function spendableUnits(): Promise<number> {
 }
 
 /**
-  Units debited since `since`. The history entry shape is read defensively: entries carry an
-  amount and a timestamp; debits are negative amounts or entries typed as usage.
-  To verify against a real response during calibration (tasks T001).
+  Units debited since `since`, from the free credit history (format checked on 2026-10-22:
+  result.history[] newest first, timestamp in ms, each debit is a negative `amount` in
+  info.credits, for example action "api_skin_analysis_hd_v2" with amount -20).
 */
 export async function unitsSpentSince(since: Date): Promise<number> {
-  const json = await call<{ results?: Record<string, unknown>[]; result?: { histories?: Record<string, unknown>[] } }>(
-    "GET",
-    CREDIT_HISTORY_PATH,
-  );
-  const rows = json.results ?? json.result?.histories ?? [];
+  type Entry = { timestamp?: number; info?: { credits?: { amount?: number }[] } };
   let spent = 0;
-  for (const r of rows) {
-    const t = Number(r.created_time ?? r.timestamp ?? r.time ?? 0);
-    const when = t > 1e12 ? t : t * 1000;
-    if (!when || when < since.getTime()) continue;
-    const amount = Number(r.amount ?? r.units ?? 0);
-    const kind = String(r.type ?? r.action ?? "").toLowerCase();
-    if (amount < 0) spent += -amount;
-    else if (/consum|use|deduct|task/.test(kind)) spent += amount;
+  let token: string | null | undefined;
+  for (let page = 0; page < 5; page++) {
+    const path = token ? `${CREDIT_HISTORY_PATH}?starting_token=${encodeURIComponent(token)}` : CREDIT_HISTORY_PATH;
+    const json = await call<{ result?: { history?: Entry[]; next_token?: string | null } }>("GET", path);
+    const rows = json.result?.history ?? [];
+    let older = false;
+    for (const r of rows) {
+      if (!r.timestamp || r.timestamp < since.getTime()) {
+        older = true;
+        continue;
+      }
+      for (const c of r.info?.credits ?? []) if ((c.amount ?? 0) < 0) spent += -(c.amount as number);
+    }
+    token = json.result?.next_token;
+    if (older || !token) break;
   }
   return spent;
 }
@@ -136,14 +139,18 @@ export async function getTask(taskId: string): Promise<TaskResult> {
       task_status?: string;
       error?: string;
       error_message?: string;
-      results?: { output?: { type: string; raw_score: number; ui_score: number; mask_urls?: string[] }[] };
+      results?: { output?: { type: string; region?: string; raw_score?: number; ui_score?: number; mask_urls?: string[] }[] };
     };
   }>("GET", `${TASK_PATH}/${encodeURIComponent(taskId)}`);
   const data = json.data ?? {};
   if (data.task_status === "success") {
+    // Pores and wrinkles come once per face region; Verdict uses the whole face entry.
+    // Entries without a raw score ("all", "skin_age", "resize_image") are not concerns.
     const results = (data.results?.output ?? []).flatMap((o) => {
       const concern = concernFromAction(o.type);
-      return concern ? [{ concern, raw: o.raw_score, ui: o.ui_score, maskUrls: o.mask_urls ?? [] }] : [];
+      if (!concern || (o.region && o.region !== "whole")) return [];
+      if (typeof o.raw_score !== "number" || typeof o.ui_score !== "number") return [];
+      return [{ concern, raw: o.raw_score, ui: o.ui_score, maskUrls: o.mask_urls ?? [] }];
     });
     return { status: "success", results };
   }

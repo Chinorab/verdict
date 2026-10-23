@@ -13,7 +13,12 @@ if (files.length < 2) {
 const runs = files.map((f) => {
   const rec = JSON.parse(readFileSync(f, 'utf8'));
   const scores = {};
-  for (const o of rec.data?.results?.output ?? []) scores[o.type] = { raw: o.raw_score, ui: o.ui_score };
+  for (const o of rec.data?.results?.output ?? []) {
+    // Pores and wrinkles come per region; the whole face entry is the one Verdict uses.
+    if (o.region && o.region !== 'whole') continue;
+    if (!Number.isFinite(o.raw_score)) continue; // 'all', 'skin_age', 'resize_image'
+    scores[o.type] = { raw: o.raw_score, ui: o.ui_score };
+  }
   return { name: basename(f), mode: rec.mode, scores };
 });
 

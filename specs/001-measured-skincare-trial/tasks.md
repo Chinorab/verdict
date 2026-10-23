@@ -28,11 +28,11 @@ checked on its own.
 
 **Purpose**: Real API numbers first, then the project skeleton.
 
-- [ ] T001 Run `node scripts/cost.mjs`, record spendable units and the skin analysis price list in PROGRESS.md (free call; requires the author's `.env.local`)
-- [ ] T002 Dry run then `--confirm` run of `node scripts/analyze.mjs --label day0 --mode hd` on the author's photos A, B, C in scripts/photos/ (day 0 of the demo trial); record units spent from scripts/out/ledger.jsonl
-- [ ] T003 Run `node scripts/noise.mjs` for A vs B and A vs B vs C; save the tables to scripts/out/day0/noise.md and draft the "What we learned from the API" notes in docs/api-notes.md
-- [ ] T004 Decide per concern raw score direction, noise factor k and floors from T003 (compare raw vs ui ordering per concern) and write them with a comment per value in src/lib/measure/config.ts
-- [ ] T005 Compute the budget line inputs (launch balance, reserve for the author's remaining demo check-ins, end 2026-11-20T16:45Z) from T001 and T002 plus a per day ceiling BUDGET_DAILY_MAX (about 1.5 times the line's daily slope) and write them to .env.example names plus PROGRESS.md values
+- [X] T001 Run `node scripts/cost.mjs`, record spendable units and the skin analysis price list in PROGRESS.md (free call; requires the author's `.env.local`) (2026-10-22: 1040 units; HD 12/16/20/22, SD 9/12/14/16 per analysis by concern count)
+- [ ] T002 Dry run then `--confirm` run of `node scripts/analyze.mjs --label day0 --mode hd` on the author's photos A, B, C in scripts/photos/ (day 0 of the demo trial); record units spent from scripts/out/ledger.jsonl PARTIAL 2026-10-22: run on SYNTHETIC test faces only (60 units, balance 980); real day 0 still pending
+- [X] T003 Run `node scripts/noise.mjs` for A vs B and A vs B vs C; save the tables to scripts/out/day0/noise.md and draft the "What we learned from the API" notes in docs/api-notes.md (synthetic: noise.mjs fixed for regions; tables in README "What we learned")
+- [X] T004 Decide per concern raw score direction, noise factor k and floors from T003 (compare raw vs ui ordering per concern) and write them with a comment per value in src/lib/measure/config.ts (directions measured; k = 1.5 and 1 point floors are labelled design defaults, recalibrate on real photos)
+- [X] T005 Compute the budget line inputs (launch balance, reserve for the author's remaining demo check-ins, end 2026-11-20T16:45Z) from T001 and T002 plus a per day ceiling BUDGET_DAILY_MAX (about 1.5 times the line's daily slope) and write them to .env.example names plus PROGRESS.md values (.env.local: unit cost 20, launch 980, reserve 100, daily max 180, start Oct 23; pace line given a day of head start after a live test)
 - [ ] T006 Check from a browser page on localhost whether the YouCam pre signed upload URL accepts a PUT (CORS) and whether mask URLs can be fetched (CORS); record the outcome in specs/001-measured-skincare-trial/research.md R4
 - [X] T007 Write scripts/to-backup.mjs converting scripts/out/<label>/*.json into the backup format of contracts/backup-file.md (no face photos, masks optional) (also reads trial-setup.json with an optional maxTrialDays; output validated by the app parser; analyze.mjs now records image size)
 - [X] T008 Scaffold Next.js 16.4 App Router with TypeScript strict and npm in the repo root (package.json, tsconfig.json, next.config.ts, src/app), keeping scripts/, design/, specs/, .specify/ untouched
@@ -62,7 +62,7 @@ checked on its own.
 - [X] T025 Implement GET /api/budget in src/app/api/budget/route.ts per contracts/api.md
 - [X] T026 [P] Unit tests for budget line and cookie signing in tests/unit/budget.test.ts
 - [X] T027 [P] Write public/sw.js (cache the app shell and fonts, never cache /api or blobs) and register it from src/components/SwRegister.tsx
-- [ ] T028 Record mocked upstream fixtures from T002 output into tests/fixtures/youcam/ (task success HD, error_src_face_too_small, running) and a Claude claims response into tests/fixtures/claims/serum.json; add Playwright route mocks in tests/e2e/mocks.ts PARTIAL 2026-10-17: tests/e2e/mocks.ts and tests/fixtures/README.md exist; recorded fixtures wait for T002
+- [ ] T028 Record mocked upstream fixtures from T002 output into tests/fixtures/youcam/ (task success HD, error_src_face_too_small, running) and a Claude claims response into tests/fixtures/claims/serum.json; add Playwright route mocks in tests/e2e/mocks.ts PARTIAL 2026-10-22: task-success-hd.json recorded (synthetic, numbers only); error fixture still to record from a real rejected photo
 
 **Checkpoint**: tokens, storage, server clients and caps ready.
 
