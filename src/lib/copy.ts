@@ -65,6 +65,26 @@ const GENERIC: Record<string, ErrorCopy> = {
     title: "Verdict cannot use the camera.",
     action: "Allow camera access for this site in your browser settings, or upload a photo instead.",
   },
+  camera_resolution: {
+    title: "This camera cannot take a sharp enough photo with the strict check.",
+    action: "Try the camera again with a lighter check, or upload a photo taken with the front camera.",
+  },
+  camera_failed: {
+    title: "The camera stopped before a photo was taken.",
+    action: "Open the camera again, or upload a photo instead.",
+  },
+  kit_unavailable: {
+    title: "The camera guide could not load.",
+    action: "Check your connection and reload the page, or upload a photo instead.",
+  },
+  not_found: {
+    title: "This trial is not on this device.",
+    action: "Trials live on the phone that started them. Start a new trial or import a backup.",
+  },
+  wrong_state: {
+    title: "This trial does not take photos right now.",
+    action: "Go back to the trial to see what is due.",
+  },
   upload_blocked: {
     title: "The photo could not be sent for analysis.",
     action: "Check your connection and try again. Your photo is saved on this phone.",

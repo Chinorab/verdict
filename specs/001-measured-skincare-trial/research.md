@@ -44,6 +44,11 @@ bundled Claude API skill (TypeScript), npm registry versions.
   not in the docs) took the photo on demand. The capture screen therefore shows the Light
   indicator as the thing to fix, and after a wait offers a manual capture once face, position
   and angle are good, so a dim room does not block the user.
+- **Container shape (inferred, to confirm on the phone)**: the probe's default container was
+  390 x 645 CSS px and the photo 1080 x 1788, the same shape. So the photo width is 1080 and
+  its height follows the container. The capture screen sizes the container to the column
+  width and caps its height to the screen so the shutter stays visible, never wider than tall,
+  which keeps the short side at 1080 (HD). If a phone returns less, `modeForDay0` locks SD.
 - **Rationale**: HD and SD actions cannot be mixed in one task, and mixing across sessions
   would make scores incomparable. The HD minimum is 1080 px on the short side.
 - **Alternatives**: always SD (cheaper, less detail); `hdskincare` mode (excludes most phones).
