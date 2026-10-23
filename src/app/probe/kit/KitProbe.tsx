@@ -108,6 +108,10 @@ export function KitProbe() {
       setReady(true);
       note("sdk ready");
     };
+    const onError = (e: ErrorEvent) => note(`error ${e.message}`);
+    const onReject = (e: PromiseRejectionEvent) => note(`rejection ${String(e.reason)}`);
+    window.addEventListener("error", onError);
+    window.addEventListener("unhandledrejection", onReject);
     // The SDK calls YMKAsyncInit when it loads; the load event covers a script loaded by an earlier mount.
     window.YMKAsyncInit = wire;
     let script = document.querySelector<HTMLScriptElement>(`script[src="${SDK}"]`);
@@ -123,6 +127,8 @@ export function KitProbe() {
     const el = script;
     return () => {
       el.removeEventListener("load", wire);
+      window.removeEventListener("error", onError);
+      window.removeEventListener("unhandledrejection", onReject);
       for (const id of ids) window.YMK?.removeEventListener(id);
       window.YMK?.close();
     };
@@ -130,8 +136,13 @@ export function KitProbe() {
 
   function start() {
     const ymk = window.YMK;
-    if (!ymk) return;
-    ymk.close();
+    note(`tap open ${container}, ${video}, ${level}`);
+    if (!ymk) return note("YMK missing");
+    try {
+      ymk.close();
+    } catch (e) {
+      note(`close before open threw ${String(e)}`);
+    }
     const args: Record<string, unknown> = {
       faceDetectionMode: "skincare",
       imageFormat: "blob",
@@ -141,10 +152,14 @@ export function KitProbe() {
       hideFlipCameraButton: false,
     };
     if (container !== "default") Object.assign(args, { width: 1080, height: 1920 });
-    ymk.init(args);
-    ymk.openCameraKit();
-    setOpen(true);
-    note(`open ${container}, ${video}, ${level}`);
+    try {
+      ymk.init(args);
+      ymk.openCameraKit();
+      setOpen(true);
+      note("openCameraKit called");
+    } catch (e) {
+      note(`open threw ${String(e)}`);
+    }
   }
 
   function stop() {
