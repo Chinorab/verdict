@@ -7,6 +7,7 @@ import { CtaButton, Segmented, SecondaryButton } from "@/components/ui";
 type Ymk = {
   init: (args: Record<string, unknown>) => void;
   openCameraKit: () => void;
+  capture: () => unknown;
   close: () => void;
   addEventListener: (event: string, cb: (payload: unknown) => void) => unknown;
   removeEventListener: (id: unknown) => void;
@@ -162,6 +163,16 @@ export function KitProbe() {
     }
   }
 
+  // Manual capture: the size matters here, not whether the quality check passed.
+  function shoot() {
+    try {
+      const r = window.YMK?.capture();
+      note(`capture called ${r === undefined ? "" : String(r)}`);
+    } catch (e) {
+      note(`capture threw ${String(e)}`);
+    }
+  }
+
   function stop() {
     window.YMK?.close();
     setOpen(false);
@@ -177,6 +188,7 @@ export function KitProbe() {
           pixelRatio: devicePixelRatio,
         },
         runs,
+        lastQuality: quality,
         events: log,
       },
       null,
@@ -199,7 +211,10 @@ export function KitProbe() {
       <Segmented legend="Video quality" options={VIDEO} value={video} onChange={setVideo} />
       <Segmented legend="Quality check" options={LEVELS} value={level} onChange={setLevel} />
       {open ? (
-        <SecondaryButton onClick={stop}>Close camera</SecondaryButton>
+        <>
+          <CtaButton onClick={shoot}>Take photo now</CtaButton>
+          <SecondaryButton onClick={stop}>Close camera</SecondaryButton>
+        </>
       ) : (
         <CtaButton onClick={start} disabled={!ready}>
           {ready ? "Open camera" : "Loading camera kit"}
