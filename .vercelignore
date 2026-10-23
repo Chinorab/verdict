@@ -1,0 +1,12 @@
+# Never uploaded to Vercel: keys, face photos, API outputs, test artifacts
+.env
+.env.*
+!.env.example
+scripts/photos/
+scripts/out/
+test-results/
+playwright-report/
+tests/
+.specify/
+node_modules/
+.next/
