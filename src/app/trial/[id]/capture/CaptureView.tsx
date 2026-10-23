@@ -16,7 +16,7 @@ import {
 import { errorCopy } from "@/lib/copy";
 import { toJpeg } from "@/lib/image";
 import { todayIso } from "@/lib/schedule";
-import type { Session } from "@/lib/schemas";
+import type { Mode, Session } from "@/lib/schemas";
 import { nextCheckin, timelineRows } from "@/lib/timeline";
 import { addCapture, CaptureRefused, finishDay0 } from "@/lib/trial-actions";
 import { loadTrial, type TrialBundle } from "@/lib/trial-data";
@@ -86,6 +86,7 @@ export function CaptureView({ id, day }: { id: string; day: number | null }) {
   const [cameraKey, setCameraKey] = useState(0);
   const [flash, setFlash] = useState(false);
   const [help, setHelp] = useState(false);
+  const [shot, setShot] = useState<{ width: number; height: number; mode: Mode } | null>(null);
   const kit = useRef<KitSession | null>(null);
   const abort = useRef<AbortController | null>(null);
   const busy = useRef(false);
@@ -99,6 +100,7 @@ export function CaptureView({ id, day }: { id: string; day: number | null }) {
     async (b: TrialBundle, session: Session, current: Step) => {
       const mode = b.trial.mode;
       if (!mode) return setPhase({ name: "error", code: "wrong_state", session: null });
+      setShot({ width: session.width, height: session.height, mode });
       abort.current?.abort();
       const ctrl = new AbortController();
       abort.current = ctrl;
@@ -306,6 +308,11 @@ export function CaptureView({ id, day }: { id: string; day: number | null }) {
       )}
 
       {phase.name === "analyzing" && <Analyzing status={phase.status} />}
+      {(phase.name === "analyzing" || (phase.name === "error" && phase.session)) && shot && (
+        <p className={`${s.meta} num`}>
+          Photo {shot.width} x {shot.height}, {shot.mode === "hd" ? "HD" : "SD"} detail
+        </p>
+      )}
 
       {phase.name === "missing" && (
         <div className={s.panel}>

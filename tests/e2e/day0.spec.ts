@@ -132,8 +132,25 @@ test("a refused camera offers the photo upload", async ({ page }) => {
   await seedTrial(page, day0Seed());
   await page.goto("/trial/seed-trial/capture");
   await expect(page.getByText("Day 0, photo 1 of 2")).toBeVisible();
-  await expect.poll(() => kit.calls(page).then((c) => c.length)).toBeGreaterThan(0);
+  await expect.poll(() => kit.calls(page).then((c) => c.length).catch(() => 0)).toBeGreaterThan(0);
   await kit.fail(page, "error_permission_denied");
   await expect(page.getByText("Verdict cannot use the camera.")).toBeVisible();
   await expect(page.getByRole("button", { name: "Upload a photo instead" })).toBeVisible();
+});
+
+test("without analyses the photo is kept and its size and detail are shown", async ({ page }) => {
+  await mockBudget(page);
+  await page.route("**/api/analysis/upload", (r) =>
+    r.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ error: { code: "unavailable" } }) }),
+  );
+  await seedTrial(page, day0Seed());
+  await page.goto("/trial/seed-trial/capture");
+  await expect.poll(() => kit.calls(page).then((c) => c.length).catch(() => 0)).toBeGreaterThan(0);
+  await kit.quality(page, GOOD);
+  await page.getByRole("button", { name: "Take photo" }).click();
+  await expect(page.getByRole("alert").filter({ hasText: "Try again" })).toBeVisible();
+  await expect(page.getByText("Photo 1080 x 1350, HD detail")).toBeVisible();
+  const db = await stored(page);
+  expect(db.trial.mode).toBe("hd");
+  expect(db.photos).toContain("face");
 });

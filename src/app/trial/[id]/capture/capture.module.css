@@ -199,6 +199,12 @@
   gap: 8px;
 }
 
+.meta {
+  margin: 0 0 16px;
+  font-size: var(--fs-micro);
+  color: var(--cam-text-3);
+}
+
 .reminders {
   list-style: none;
   margin: 4px 0 0;
