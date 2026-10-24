@@ -30,7 +30,9 @@ Verdict runs a personal, measured trial of one product:
    suggestion to pause the product and see a dermatologist. Never a diagnosis.
 
 Judges can try it end to end on a phone in about 10 minutes with the same day test, without an
-account, and browse the author's real trial.
+account, at https://verdict-skin.vercel.app, and follow the author's real trial at
+https://verdict-skin.vercel.app/demo (numbers only, updated after each check-in, verdict on
+Nov 19).
 
 ## How we built it
 

@@ -9,8 +9,9 @@ reading moves on its own, in time to return the product.
 
 Built for the YouCam API Skin AI & eCommerce VTO Hackathon (2026).
 
-> Status: calibration numbers, the live URL and the author's demo trial are added as they are
-> recorded. Nothing in this repository is sample data presented as real.
+> Status: live at https://verdict-skin.vercel.app. The author's demo trial is published as it
+> runs (day 0 measured Oct 24, 2026; verdict due Nov 19). Nothing in this repository is sample
+> data presented as real.
 
 ## The problem
 
@@ -30,10 +31,16 @@ that answer before the deadline, and makes it a measurement instead of an impres
 
 ## Live demo
 
-- Live app: pending deployment (tasks T089).
-- The author's real trial, recorded on their own skin with a real product, read only, with its
-  real dates: `/demo` once the last check-in is done.
-- Same day test for judges: `/trial/new?quick=1`, about 10 minutes, no account.
+- Live app: **https://verdict-skin.vercel.app** (works on a phone, no account).
+- The author's real trial, recorded on their own skin with a real product (SVR Extreme
+  Sensifine, bought for $30 with a 30 day return window), read only, numbers only, no face
+  photos: [/demo](https://verdict-skin.vercel.app/demo). It is updated after each check-in
+  (Oct 31, Nov 7, Nov 14) and reaches its verdict on Nov 19, before the Nov 23 return deadline.
+  The claim the author typed by accident ("Vvb") was replaced with the label wording, marked as
+  edited (`scripts/demo-overrides.json`).
+- Same day test for judges: [/trial/new?quick=1](https://verdict-skin.vercel.app/trial/new?quick=1),
+  about 10 minutes, no account.
+- The first visit can show Vercel's browser check for a second; it passes on its own.
 
 ## How it works
 
