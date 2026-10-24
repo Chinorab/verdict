@@ -18,3 +18,8 @@ next-env.d.ts
 
 # Backups exported from the phone before publishing the demo
 scripts/demo-in/
+
+# Demo video build outputs (voice, raw recordings, renders)
+video/voice/
+video/raw/
+video/out/

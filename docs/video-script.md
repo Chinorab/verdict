@@ -1,21 +1,40 @@
-# Demo video script (2 min 20 s target, 2 min 30 s maximum)
+# Demo video (1 min 52 s; contest limit 3 min, own target 2 min 30 s)
 
-Rules: phone screen recordings of the real app only; the author's real trial; no third party
-brand visible (the product label is filmed with the brand covered or out of frame, or shown as
-typed claims); no copyrighted music (silence or a self made track); voice over in English.
+Built from the real app, end to end, by three scripts in `video/`:
 
-| # | Time | Picture | Voice over |
-|---|---|---|---|
-| 1 | 0:00 to 0:12 | Hands holding a serum box, brand covered. Text on screen: "Fades dark spots in 4 weeks". | "Skincare labels make promises with a deadline. Most of us find out if they worked after we can no longer return the product." |
-| 2 | 0:12 to 0:24 | Landing page on the phone, the 47% statistic and its source link. | "Nearly half of 633 skincare brands could not back any of their key claims with evidence a shopper can check. Verdict lets you check on your own skin." |
-| 3 | 0:24 to 0:42 | Scan step: photo of the label, claims appear, one marked not measurable. | "Photograph the label. Each claim is matched to something YouCam AI Skin Analysis can measure. A claim a photo cannot check is shown, and left out." |
-| 4 | 0:42 to 0:54 | Purchase form: price, 30 day window, "Return by ... verdict on ...". | "Add the price and the return window. Check-ins are planned so the verdict lands before the deadline." |
-| 5 | 0:54 to 1:14 | Capture with the YouCam camera kit: live Light, Framing, Angle indicators, two photos. | "Day 0 is two photos, one after the other, with YouCam's camera kit checking light, framing and angle. The difference between them is your noise floor: how much a reading moves on its own." |
-| 6 | 1:14 to 1:26 | Timeline with check-ins, calendar file added. | "Check in on schedule. Reminders come from your own calendar. Photos stay on your phone and go only to YouCam to be measured." |
-| 7 | 1:26 to 1:52 | The author's real verdict: per claim rows with noise bars, Keep or Return, refund at stake. | "On verdict day, every claim gets a result: holding up, getting worse, or no measurable change, always next to its threshold. Verdict uses YouCam's raw scores, not the display scores, which are adjusted to look better." |
-| 8 | 1:52 to 2:04 | Compare slider with detection masks. | "Compare day 0 and today with YouCam's detection masks." |
-| 9 | 2:04 to 2:14 | The privacy page (no invented readings: the safety notice is filmed only if it happened in a real trial). | "If redness or blemishes keep rising, Verdict suggests pausing and seeing a dermatologist. It never diagnoses." |
-| 10 | 2:14 to 2:24 | Measured review card, face photos off, share sheet. | "Share a review made only of measurements. Keep it, or return it, while you still can." |
+```
+D:/claude/beneficia/.venv/Scripts/python.exe video/voice.py   # narration, Piper en_US-ryan-high, local
+npx next build && npx next start -p 3770                       # production build, local
+node video/record.mjs                                          # one continuous take, 1920 x 1080
+node video/build.mjs                                           # -> video/out/verdict-demo.mp4
+```
 
-Before recording: replace every screen with the author's real data; check that no brand name or
-logo is visible; check the total length is under 2 min 30 s.
+Rules applied (contest rules and the project constitution):
+
+- No third party trademark: the product's brand name is replaced on screen by "Soothing cream".
+- No copyrighted music: narration only.
+- No real face: the faces are the three **synthetic test faces** of a fictional person
+  (`scripts/photos/synthetic`), labelled on screen every time they appear.
+- No invented number: every YouCam reply is the real response recorded for those faces on
+  2026-10-22 (`scripts/out/synthetic`, masks included); the label reading is the real one Claude
+  returned for the author's product (kept in `public/demo/demo-trial.verdict.json`); the author's
+  trial is that same demo file.
+
+| Scene | Picture | Data |
+|---|---|---|
+| title | Title card | |
+| problem | 47% of 633 brands | M11 report, Dermatology Times, Oct 13, 2026 (README sources) |
+| scan | Label scan, two claims left out with reasons | Real reading of the author's label, replayed; a grey image stands in for the label photo |
+| claim | "Sa texture fraîche hydrate" added, Hydration picked | The author's claim, as corrected for the demo |
+| purchase | $30, Oct 24, 30 day window, verdict Nov 19 | The author's real purchase |
+| capture | Camera kit with live Light, Framing, Angle; photo A | Synthetic face A |
+| baseline | Measuring, photo B, "Baseline set" | Real YouCam results for faces A and B (HD) |
+| demo | The author's real trial, read only | public/demo, day 0 Oct 24, 2026 |
+| verdict | Verdict photo C on Nov 19, "Return it.", hydration +0.2 inside ±3.4 | Real YouCam result for face C against A and B |
+| rawscore | Claim rows with threshold bars | raw_score vs ui_score gap from README "What we learned" (pores raw 12.5 to 19.9, ui 51 to 54) |
+| compare | Slider with YouCam detection masks | Real masks for faces A and C |
+| privacy | Privacy page | Static copy |
+| closing | verdict-skin.vercel.app | |
+
+Narration text lives in `video/voice.py`; captions in `video/record.mjs`. Upload to YouTube is done
+by the author (public or unlisted link on the Devpost form).
