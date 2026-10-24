@@ -33,10 +33,21 @@ if (b.trial.kind === 'quick') fail('this is a same day test, not a real trial.')
 const done = b.sessions.filter((s) => s.state === 'done');
 if (!done.some((s) => s.kind === 'day0_a') || !done.some((s) => s.kind === 'day0_b')) fail('day 0 is not finished.');
 
+// Text corrections the author asked for (scripts/demo-overrides.json). Concerns never change.
+const overrides = JSON.parse(readFileSync(join(ROOT, 'scripts', 'demo-overrides.json'), 'utf8')).claims ?? [];
+const claims = b.claims.map((c) => {
+  const o = overrides.find((x) => x.from === c.text);
+  return o ? { ...c, text: o.to, editedByUser: true } : c;
+});
+for (const o of overrides) {
+  if (b.claims.some((c) => c.text === o.from)) console.log(`Claim corrected: "${o.from}" -> "${o.to}"`);
+}
+
 // Keep the measurements; drop what only matters on the phone (task ids, photo links, masks).
 const out = {
   ...b,
   trial: { ...b.trial, kind: 'demo' },
+  claims,
   sessions: b.sessions.map((s) => ({ ...s, taskId: null, photoId: null })),
   measurements: b.measurements.map((m) => ({ ...m, maskIds: [] })),
 };

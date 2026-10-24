@@ -1,0 +1,195 @@
+{
+  "format": "verdict-backup",
+  "version": 1,
+  "exportedAt": "2026-10-24T14:48:38.658Z",
+  "includesPhotos": false,
+  "trial": {
+    "id": "ce2f3ee8-d5d3-4f44-a45e-853e153292a3",
+    "kind": "demo",
+    "status": "active",
+    "createdAt": "2026-10-24T14:46:14.161Z",
+    "product": {
+      "name": "SVR Extreme Sensifine",
+      "size": "30 ml"
+    },
+    "purchase": {
+      "price": 30,
+      "currency": "USD",
+      "date": "2026-10-24",
+      "retailer": "",
+      "online": false,
+      "returnDays": 30
+    },
+    "deadline": "2026-11-23",
+    "trialDays": 26,
+    "verdictDate": "2026-11-19",
+    "mode": "hd",
+    "reminderHour": 16,
+    "schedule": [
+      {
+        "day": 0,
+        "date": "2026-10-24",
+        "kind": "day0"
+      },
+      {
+        "day": 7,
+        "date": "2026-10-31",
+        "kind": "checkin"
+      },
+      {
+        "day": 14,
+        "date": "2026-11-07",
+        "kind": "checkin"
+      },
+      {
+        "day": 21,
+        "date": "2026-11-14",
+        "kind": "checkin"
+      },
+      {
+        "day": 26,
+        "date": "2026-11-19",
+        "kind": "verdict"
+      }
+    ],
+    "decision": "undecided",
+    "guardrail": {
+      "level": 0
+    },
+    "notes": {
+      "jamaNoteShown": false,
+      "timeframeWarning": false
+    }
+  },
+  "claims": [
+    {
+      "text": "Sa texture fraîche hydrate",
+      "timeframeDays": 21,
+      "targets": [
+        {
+          "concern": "moisture",
+          "direction": "increase"
+        }
+      ],
+      "measurable": true,
+      "unmeasurableReason": null,
+      "main": true,
+      "healthTerms": [],
+      "fastPromise": true,
+      "editedByUser": true,
+      "position": 2,
+      "id": "03fcc0f4-0cad-4c15-a0d9-150fd830c711",
+      "trialId": "ce2f3ee8-d5d3-4f44-a45e-853e153292a3"
+    },
+    {
+      "text": "Sa texture fraîche hydrate pendant 8h et apaise.",
+      "timeframeDays": null,
+      "targets": [],
+      "measurable": false,
+      "unmeasurableReason": "Hydration over 8 hours cannot be checked with photos taken days apart.",
+      "main": false,
+      "healthTerms": [],
+      "fastPromise": false,
+      "editedByUser": false,
+      "position": 1,
+      "id": "32b21cdc-3f07-4430-beb5-424bb76a4035",
+      "trialId": "ce2f3ee8-d5d3-4f44-a45e-853e153292a3"
+    },
+    {
+      "text": "Un soin apaisant pour réparer et protéger la barrière cutanée sans compromis sur le plaisir et le confort.",
+      "timeframeDays": null,
+      "targets": [],
+      "measurable": false,
+      "unmeasurableReason": "It talks about soothing and barrier protection, which photos cannot measure.",
+      "main": false,
+      "healthTerms": [],
+      "fastPromise": false,
+      "editedByUser": false,
+      "position": 0,
+      "id": "fd425956-c105-49b6-9aac-dc6e8798f1d5",
+      "trialId": "ce2f3ee8-d5d3-4f44-a45e-853e153292a3"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "6b697b66-4767-4827-a81e-8efd85977047",
+      "trialId": "ce2f3ee8-d5d3-4f44-a45e-853e153292a3",
+      "kind": "day0_a",
+      "scheduledDay": 0,
+      "takenAt": "2026-10-24T14:46:57.820Z",
+      "photoId": null,
+      "width": 1080,
+      "height": 1080,
+      "quality": {
+        "position": "good",
+        "frontal": "good",
+        "lighting": "ok"
+      },
+      "taskId": null,
+      "state": "done",
+      "error": null
+    },
+    {
+      "id": "e04b9bf3-987f-4432-b218-4142d60157a0",
+      "trialId": "ce2f3ee8-d5d3-4f44-a45e-853e153292a3",
+      "kind": "day0_b",
+      "scheduledDay": 0,
+      "takenAt": "2026-10-24T14:47:16.284Z",
+      "photoId": null,
+      "width": 1080,
+      "height": 1080,
+      "quality": {
+        "position": "good",
+        "frontal": "good",
+        "lighting": "ok"
+      },
+      "taskId": null,
+      "state": "done",
+      "error": null
+    }
+  ],
+  "measurements": [
+    {
+      "sessionId": "6b697b66-4767-4827-a81e-8efd85977047",
+      "concern": "acne",
+      "raw": 60.00292205810547,
+      "ui": 76,
+      "maskIds": []
+    },
+    {
+      "sessionId": "6b697b66-4767-4827-a81e-8efd85977047",
+      "concern": "moisture",
+      "raw": 66.47316217422485,
+      "ui": 76,
+      "maskIds": []
+    },
+    {
+      "sessionId": "6b697b66-4767-4827-a81e-8efd85977047",
+      "concern": "redness",
+      "raw": 89.05650329589844,
+      "ui": 85,
+      "maskIds": []
+    },
+    {
+      "sessionId": "e04b9bf3-987f-4432-b218-4142d60157a0",
+      "concern": "acne",
+      "raw": 61.335548400878906,
+      "ui": 77,
+      "maskIds": []
+    },
+    {
+      "sessionId": "e04b9bf3-987f-4432-b218-4142d60157a0",
+      "concern": "moisture",
+      "raw": 64.24449682235718,
+      "ui": 75,
+      "maskIds": []
+    },
+    {
+      "sessionId": "e04b9bf3-987f-4432-b218-4142d60157a0",
+      "concern": "redness",
+      "raw": 88.13904571533203,
+      "ui": 84,
+      "maskIds": []
+    }
+  ]
+}

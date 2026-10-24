@@ -97,3 +97,17 @@ test("a demo with a check-in opens on its verdict", async ({ page }) => {
   await page.waitForURL(/\/trial\/demo\/verdict$/);
   await expect(page.getByText(/Real trial by the author/).first()).toBeVisible();
 });
+
+test("the published demo file opens read only, with no photos", async ({ page }) => {
+  const res = await page.request.get("/demo/demo-trial.verdict.json");
+  test.skip(!res.ok(), "no demo published yet");
+  const file = await res.json();
+  expect(file.includesPhotos).toBe(false);
+  expect(file.photos).toBeUndefined();
+  expect(file.trial.kind).toBe("demo");
+  await page.goto("/demo");
+  await page.waitForURL(/\/trial\/demo(\/verdict)?$/);
+  await expect(page.getByText(/Real trial by the author/).first()).toBeVisible();
+  await expect(page.getByText(file.trial.product.name).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: /Take/ })).toHaveCount(0);
+});

@@ -1,0 +1,10 @@
+{
+  "_note": "Corrections the author asked for on the published demo. Applied by scripts/publish-demo.mjs on every publish, so each new export from the phone gets them too. Each one sets editedByUser on the claim.",
+  "claims": [
+    {
+      "from": "Vvb",
+      "to": "Sa texture fraîche hydrate",
+      "reason": "Text typed by accident on the phone; the author replaced it with the label wording on 2026-10-24. Its measured concern (moisture, increase) is unchanged."
+    }
+  ]
+}
