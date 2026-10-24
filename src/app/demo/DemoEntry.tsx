@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CtaLink } from "@/components/ui";
-import { DEMO_ID, loadDemo } from "@/lib/demo";
+import { demoStart, loadDemo } from "@/lib/demo";
 
 /* Opens the author's demo trial, read only. */
 export function DemoEntry() {
@@ -12,10 +12,11 @@ export function DemoEntry() {
 
   useEffect(() => {
     let live = true;
-    loadDemo().then((id) => {
+    loadDemo().then(async (id) => {
       if (!live) return;
-      if (id) router.replace(`/trial/${DEMO_ID}/verdict`);
-      else setMissing(true);
+      if (!id) return setMissing(true);
+      const to = await demoStart();
+      if (live) router.replace(to);
     });
     return () => {
       live = false;

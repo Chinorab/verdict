@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Icon } from "@/components/Icon";
 import { DemoBanner } from "@/components/DemoBanner";
+import { demoToday } from "@/lib/demo-core";
 import { ResultRow } from "@/components/ResultRow";
 import { SafetyNotice } from "@/components/SafetyNotice";
 import { CtaLink, Disclaimer, Header, SameDayBadge } from "@/components/ui";
@@ -60,8 +61,10 @@ export function VerdictView({ id }: { id: string }) {
     );
   }
 
-  const state = deriveVerdict(bundle, today);
-  return <Ready bundle={bundle} state={state} today={today} onDecide={(t) => setBundle({ ...bundle, trial: t })} />;
+  // The demo is read at its last measured photo, like its timeline.
+  const at = bundle.trial.kind === "demo" ? demoToday(bundle.trial, bundle.sessions, today) : today;
+  const state = deriveVerdict(bundle, at);
+  return <Ready bundle={bundle} state={state} today={at} onDecide={(t) => setBundle({ ...bundle, trial: t })} />;
 }
 
 function Shell({ id, title, right, children }: { id: string; title: string; right?: React.ReactNode; children?: React.ReactNode }) {

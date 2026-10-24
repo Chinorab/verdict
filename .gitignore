@@ -15,3 +15,6 @@ test-results/
 playwright-report/
 next-env.d.ts
 *.tsbuildinfo
+
+# Backups exported from the phone before publishing the demo
+scripts/demo-in/

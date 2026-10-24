@@ -2,6 +2,7 @@
 
 import { importBackupText } from "./backup";
 import { byTrial, get } from "./db";
+import { demoLabelText, demoProgress } from "./demo-core";
 import type { Trial } from "./schemas";
 
 /*
@@ -37,13 +38,16 @@ export async function demoAvailable(): Promise<boolean> {
   }
 }
 
-/** "Real trial by the author, Oct 18 to Nov 1, 2026": dates come from the data itself. */
+/** Banner text with the trial's real dates (src/lib/demo-core.ts). */
 export async function demoLabel(trial: Trial): Promise<string> {
-  const sessions = (await byTrial("sessions", trial.id)).filter((s) => s.state === "done").sort((a, b) => a.takenAt.localeCompare(b.takenAt));
-  const fmt = (iso: string, year: boolean) =>
-    new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", ...(year ? { year: "numeric" } : {}) });
-  if (sessions.length === 0) return "Real trial by the author";
-  return `Real trial by the author, ${fmt(sessions[0].takenAt, false)} to ${fmt(sessions.at(-1)!.takenAt, true)}`;
+  return demoLabelText(demoProgress(trial, await byTrial("sessions", trial.id)));
+}
+
+/** Where /demo opens: the verdict once a check-in is measured, the timeline before. */
+export async function demoStart(): Promise<string> {
+  const trial = await get("trials", DEMO_ID);
+  if (!trial) return `/trial/${DEMO_ID}`;
+  return demoProgress(trial, await byTrial("sessions", DEMO_ID)).hasCheckin ? `/trial/${DEMO_ID}/verdict` : `/trial/${DEMO_ID}`;
 }
 
 export const isDemo = async (id: string) => (await get("trials", id))?.kind === "demo";

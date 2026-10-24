@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { Icon } from "@/components/Icon";
 import { DemoBanner } from "@/components/DemoBanner";
+import { demoToday } from "@/lib/demo-core";
 import { SafetyNotice } from "@/components/SafetyNotice";
 import { CtaLink, Disclaimer, Header, SameDayBadge, SecondaryButton } from "@/components/ui";
 import { put } from "@/lib/db";
@@ -19,7 +20,9 @@ const hourLabel = fmtHour;
 
 export function TimelineView({ id }: { id: string }) {
   const [bundle, setBundle] = useState<TrialBundle | null | undefined>(undefined);
-  const today = todayIso();
+  const now = todayIso();
+  // The demo is drawn at its last measured photo: the published file can lag the author's phone.
+  const today = bundle?.trial.kind === "demo" ? demoToday(bundle.trial, bundle.sessions, now) : now;
 
   useEffect(() => {
     let live = true;
