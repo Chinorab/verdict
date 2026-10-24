@@ -10,6 +10,10 @@ export default defineConfig({
   use: {
     baseURL,
     trace: "retain-on-failure",
+    // Running against a protected Vercel deployment: pass its automation bypass secret.
+    ...(process.env.E2E_VERCEL_BYPASS
+      ? { extraHTTPHeaders: { "x-vercel-protection-bypass": process.env.E2E_VERCEL_BYPASS, "x-vercel-set-bypass-cookie": "true" } }
+      : {}),
   },
   projects: [
     {
