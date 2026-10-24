@@ -7,7 +7,7 @@ import { DemoBanner } from "@/components/DemoBanner";
 import { SafetyNotice } from "@/components/SafetyNotice";
 import { CtaLink, Disclaimer, Header, SameDayBadge, SecondaryButton } from "@/components/ui";
 import { put } from "@/lib/db";
-import { fmtDate, fmtDay, fmtPrice } from "@/lib/format";
+import { fmtDate, fmtDay, fmtPrice, fmtHour } from "@/lib/format";
 import { buildIcs, downloadIcs } from "@/lib/ics";
 import { daysBetween, todayIso } from "@/lib/schedule";
 import type { Trial } from "@/lib/schemas";
@@ -15,7 +15,7 @@ import { nextCheckin, timelineRows, type TimelineRow } from "@/lib/timeline";
 import { deriveGuard, loadTrial, type TrialBundle } from "@/lib/trial-data";
 import s from "./timeline.module.css";
 
-const hourLabel = (h: number) => new Date(2026, 0, 1, h).toLocaleTimeString("en-US", { hour: "numeric" });
+const hourLabel = fmtHour;
 
 export function TimelineView({ id }: { id: string }) {
   const [bundle, setBundle] = useState<TrialBundle | null | undefined>(undefined);

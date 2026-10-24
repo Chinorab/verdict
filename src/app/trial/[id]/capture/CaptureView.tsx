@@ -14,6 +14,7 @@ import {
   type KitSession,
 } from "@/lib/camera-kit";
 import { errorCopy } from "@/lib/copy";
+import { fmtHour } from "@/lib/format";
 import { toJpeg } from "@/lib/image";
 import { todayIso } from "@/lib/schedule";
 import type { Mode, Session } from "@/lib/schemas";
@@ -72,11 +73,6 @@ function unfinished(b: TrialBundle, step: Step): Session | null {
   );
 }
 
-function hourLabel(h: number) {
-  const d = new Date();
-  d.setHours(h, 0, 0, 0);
-  return d.toLocaleTimeString(undefined, { hour: "numeric" });
-}
 
 export function CaptureView({ id, day }: { id: string; day: number | null }) {
   const [bundle, setBundle] = useState<TrialBundle | null>(null);
@@ -479,7 +475,7 @@ function Reminders({ step, reminderHour }: { step: Step; reminderHour: number | 
         </li>
         <li>
           <Icon name="hour" size={18} />
-          {step.kind === "checkin" && reminderHour !== null ? `Near ${hourLabel(reminderHour)}` : "Same hour"}
+          {step.kind === "checkin" && reminderHour !== null ? `Near ${fmtHour(reminderHour)}` : "Same hour"}
         </li>
       </ul>
       <p className={s.lead}>
