@@ -203,8 +203,11 @@ function Ready({
         </div>
         <p className={s.method}>
           A change counts when it is more than {k} times your day 0 noise, with a minimum per measure. Measured from{" "}
-          {plural(state.sessionsDone, "photo session")} between {fmtDate(state.day0.takenAt.slice(0, 10))} and{" "}
-          {fmtDate(state.latest.takenAt.slice(0, 10))}.
+          {plural(state.sessionsDone, "photo session")}{" "}
+          {state.day0.takenAt.slice(0, 10) === state.latest.takenAt.slice(0, 10)
+            ? `on ${fmtDate(state.day0.takenAt.slice(0, 10))}`
+            : `between ${fmtDate(state.day0.takenAt.slice(0, 10))} and ${fmtDate(state.latest.takenAt.slice(0, 10))}`}
+          .
         </p>
         {state.results.map((r) => (
           <ResultRow key={r.claimId} result={r} />
