@@ -32,6 +32,7 @@ that answer before the deadline, and makes it a measurement instead of an impres
 ## Live demo
 
 - Live app: **https://verdict-skin.vercel.app** (works on a phone, no account).
+- Demo video (1 min 52 s): https://youtu.be/BytZCRZm_bE (synthetic test faces, labelled; brand name hidden).
 - The author's real trial, recorded on their own skin with a real product (SVR Extreme
   Sensifine, bought for $30 with a 30 day return window), read only, numbers only, no face
   photos: [/demo](https://verdict-skin.vercel.app/demo). It is updated after each check-in

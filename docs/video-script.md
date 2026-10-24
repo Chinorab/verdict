@@ -1,5 +1,7 @@
 # Demo video (1 min 52 s; contest limit 3 min, own target 2 min 30 s)
 
+Published: https://youtu.be/BytZCRZm_bE
+
 Built from the real app, end to end, by three scripts in `video/`:
 
 ```

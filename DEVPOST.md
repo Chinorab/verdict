@@ -34,6 +34,9 @@ account, at https://verdict-skin.vercel.app, and follow the author's real trial 
 https://verdict-skin.vercel.app/demo (numbers only, updated after each check-in, verdict on
 Nov 19).
 
+Demo video: https://youtu.be/BytZCRZm_bE (1 min 52 s; the faces are synthetic test faces of a
+fictional person, labelled on screen, with the real YouCam results for those images).
+
 ## How we built it
 
 - Next.js 16 (App Router) and TypeScript, installable as a web app, deployed on Vercel.
