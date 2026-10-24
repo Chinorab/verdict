@@ -15,9 +15,19 @@ import { kit, mockCameraKit } from "./ymk-double";
 const OUT = process.env.GALLERY_DIR;
 const demo = JSON.parse(readFileSync(join(__dirname, "..", "..", "public", "demo", "demo-trial.verdict.json"), "utf8"));
 
-test.beforeEach(({}, info) => {
+// Contest rule for the video, applied to the gallery too: no third party trademark on screen.
+const BRAND = demo.trial.product.name as string;
+
+test.beforeEach(async ({ page }, info) => {
   test.skip(!OUT || info.project.name !== "mobile", "Gallery shots only, phone viewport");
   mkdirSync(OUT!, { recursive: true });
+  await page.addInitScript((brand: string) => {
+    const swap = () => {
+      const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      for (let n = w.nextNode(); n; n = w.nextNode()) if (n.nodeValue?.includes(brand)) n.nodeValue = n.nodeValue.split(brand).join("Soothing cream");
+    };
+    new MutationObserver(() => document.body && swap()).observe(document, { childList: true, subtree: true, characterData: true });
+  }, BRAND);
 });
 
 // Entrance animations are skipped so every shot shows the settled screen.

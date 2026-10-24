@@ -1,13 +1,14 @@
 # Gallery screenshots
 
-Taken on 2026-10-24 from the production build behind https://verdict-skin.vercel.app, phone
+Taken on 2026-10-24 from a production build of the live code, phone
 viewport (390 x 844 at 3x), by `tests/e2e/gallery.spec.ts`:
 
 ```
 GALLERY_DIR=docs/screenshots E2E_BASE_URL=<deployment url> E2E_VERCEL_BYPASS=<secret> npx playwright test tests/e2e/gallery.spec.ts --project=mobile
 ```
 
-No face photo appears in any image.
+No face photo appears in any image. The product's brand name is replaced by "Soothing cream"
+(contest rule for the video, applied to the gallery too).
 
 | File | Screen | Data shown |
 |---|---|---|
@@ -19,3 +20,10 @@ No face photo appears in any image.
 
 The verdict and review card screens need a measured check-in. They are added after the
 author's Oct 31 check-in, from the same script.
+
+## Devpost gallery
+
+`docs/gallery/` holds the extra images used on Devpost, all frames of the demo video (synthetic test
+faces, labelled; brand hidden): `6-capture-synthetic.jpg`, `7-verdict-synthetic.jpg`,
+`8-compare-synthetic.jpg`, and `thumbnail.jpg` (the verdict frame padded to 3:2). Gallery order on
+Devpost: verdict, landing, claims, capture, compare, author's trial, privacy.

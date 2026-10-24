@@ -96,5 +96,11 @@ come back once per face region plus a whole face value, which is useful for a la
 talking about yet?** Consumer protection: return windows, warranty claims and product testing
 by consumer organizations need a repeatable before and after measurement, not a one time score.
 
-**Where did you hit a wall technically? How did you work around it?** Pending the camera kit and
-upload tests on a phone; the plan and fallbacks are in `specs/001-measured-skincare-trial/research.md`.
+**Where did you hit a wall technically? How did you work around it?** The camera kit on a real
+phone. With the strict quality preset, the kit reported face, position and angle as good but
+lighting as only "ok" under ordinary indoor light, and never captured by itself. A throwaway probe
+page on an iPhone showed it, and also showed that `YMK.capture()`, present on the SDK object but not
+in the docs, takes the photo on demand. Verdict now offers a manual capture once face, position and
+angle are good, and refuses it in poor light. The same probe showed that the photo is 1080 px wide
+and takes the shape of its container, so the capture area is never wider than tall: the short side
+stays at 1080 px, the HD minimum. Details in `specs/001-measured-skincare-trial/research.md` (R2).
