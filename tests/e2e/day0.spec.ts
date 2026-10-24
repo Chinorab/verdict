@@ -148,7 +148,10 @@ test("without analyses the photo is kept and its size and detail are shown", asy
   await expect.poll(() => kit.calls(page).then((c) => c.length).catch(() => 0)).toBeGreaterThan(0);
   await kit.quality(page, GOOD);
   await page.getByRole("button", { name: "Take photo" }).click();
-  await expect(page.getByRole("alert").filter({ hasText: "Try again" })).toBeVisible();
+  await expect(page.getByText("Analyses are not available right now.")).toBeVisible();
+  // The photo is kept, so the same photo is sent again rather than retaken.
+  await expect(page.getByRole("button", { name: "Try again" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Take the photo again" })).toHaveCount(0);
   await expect(page.getByText("Photo 1080 x 1350, HD detail")).toBeVisible();
   const db = await stored(page);
   expect(db.trial.mode).toBe("hd");

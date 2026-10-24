@@ -40,7 +40,8 @@ type Phase =
   | { name: "error"; code: string; retryAfter?: string; session: Session | null }
   | { name: "done"; step: Step };
 
-const RETRY_SAME = new Set(["network", "timeout", "rate_limited", "upload_blocked", "upload_failed", "upload_missing", "unknown"]);
+// The stored photo can be sent again as is: nothing about the photo itself was refused.
+const RETRY_SAME = new Set(["network", "timeout", "rate_limited", "unavailable", "upload_blocked", "upload_failed", "upload_missing", "unknown"]);
 const CAPS = new Set(["cap_device", "cap_global"]);
 
 function stepFor(b: TrialBundle, day: number | null): Step | null {
