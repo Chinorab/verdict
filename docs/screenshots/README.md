@@ -13,7 +13,7 @@ No face photo appears in any image. The product's brand name is replaced by "Soo
 | File | Screen | Data shown |
 |---|---|---|
 | `1-landing.png` | Landing | Static copy. |
-| `2-claims.png` | Claims after a label scan | The two claims Claude read from the real SVR Extreme Sensifine label on the author's phone, with its reasons for leaving them out. The reading is replayed from the demo trial, so no paid call is made; a grey image stands in for the label photo, which this screen does not show. |
+| `2-claims.png` | Claims after a label scan | The two claims Claude read from the real label of the author's product on the author's phone, with its reasons for leaving them out. The reading is replayed from the demo trial, so no paid call is made; a grey image stands in for the label photo, which this screen does not show. |
 | `3-capture.png` | Guided capture, day 0 | Live quality indicators driven by a test double of the camera kit (light "ok", framing and angle good), so the camera area is empty: no face. |
 | `4-demo-timeline.png` | The author's real trial | `public/demo/demo-trial.verdict.json`, day 0 measured on Oct 24, 2026. |
 | `5-privacy.png` | Privacy | Static copy. |

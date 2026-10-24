@@ -106,6 +106,15 @@ describe("openKit", () => {
     expect(onFailed).toHaveBeenCalledWith("camera_denied");
   });
 
+  it("lets a camera below 1080p through only when asked (laptop webcams, measured in SD)", () => {
+    const strict = fakeYmk();
+    openKit(strict.ymk, { onQuality: vi.fn(), onCaptured: vi.fn(), onFailed: vi.fn() });
+    expect(strict.ymk.init.mock.calls[0][0]).not.toHaveProperty("disableCameraResolutionCheck");
+    const any = fakeYmk();
+    openKit(any.ymk, { onQuality: vi.fn(), onCaptured: vi.fn(), onFailed: vi.fn() }, { level: "moderate", anyResolution: true });
+    expect(any.ymk.init).toHaveBeenCalledWith(expect.objectContaining({ qualityLevel: "moderate", disableCameraResolutionCheck: true }));
+  });
+
   it("captures on demand and removes every listener on close", () => {
     const { ymk, listeners } = fakeYmk();
     const kit = openKit(ymk, { onQuality: vi.fn(), onCaptured: vi.fn(), onFailed: vi.fn() }, { level: "moderate" });

@@ -34,7 +34,8 @@ const done = b.sessions.filter((s) => s.state === 'done');
 if (!done.some((s) => s.kind === 'day0_a') || !done.some((s) => s.kind === 'day0_b')) fail('day 0 is not finished.');
 
 // Text corrections the author asked for (scripts/demo-overrides.json). Concerns never change.
-const overrides = JSON.parse(readFileSync(join(ROOT, 'scripts', 'demo-overrides.json'), 'utf8')).claims ?? [];
+const corrections = JSON.parse(readFileSync(join(ROOT, 'scripts', 'demo-overrides.json'), 'utf8'));
+const overrides = corrections.claims ?? [];
 const claims = b.claims.map((c) => {
   const o = overrides.find((x) => x.from === c.text);
   return o ? { ...c, text: o.to, editedByUser: true } : c;
@@ -46,7 +47,8 @@ for (const o of overrides) {
 // Keep the measurements; drop what only matters on the phone (task ids, photo links, masks).
 const out = {
   ...b,
-  trial: { ...b.trial, kind: 'demo' },
+  // The product name is published without its brand (scripts/demo-overrides.json).
+  trial: { ...b.trial, kind: 'demo', product: { ...b.trial.product, ...(corrections.product ? { name: corrections.product.name } : {}) } },
   claims,
   sessions: b.sessions.map((s) => ({ ...s, taskId: null, photoId: null })),
   measurements: b.measurements.map((m) => ({ ...m, maskIds: [] })),
@@ -57,7 +59,7 @@ mkdirSync(dirname(path), { recursive: true });
 writeFileSync(path, JSON.stringify(out, null, 2) + '\n');
 
 const day = (iso) => iso.slice(0, 10);
-console.log(`Published ${b.trial.product.name}: ${path}`);
+console.log(`Published ${out.trial.product.name}: ${path}`);
 console.log(`Exported ${b.exportedAt}, mode ${b.trial.mode}, return deadline ${b.trial.deadline}`);
 for (const s of done) {
   const n = b.measurements.filter((m) => m.sessionId === s.id).length;

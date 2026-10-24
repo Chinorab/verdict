@@ -24,7 +24,8 @@ const FACES = join(ROOT, 'scripts', 'photos', 'synthetic');
 const DUR = JSON.parse(readFileSync(join(HERE, 'voice', 'durations.json'), 'utf8'));
 const PAD = 0.7;
 const KIT_SRC = 'https://plugins-media.makeupar.com/v2.5-camera-kit/sdk.js';
-const BRAND = 'SVR Extreme Sensifine';
+// Brand name to hide on screen; the published demo already carries a generic name (scripts/demo-overrides.json).
+const BRAND = process.env.HIDE_BRAND ?? '';
 
 const demo = JSON.parse(readFileSync(join(ROOT, 'public', 'demo', 'demo-trial.verdict.json'), 'utf8'));
 const results = Object.fromEntries(
@@ -107,7 +108,7 @@ const DOUBLE = `(() => {
 })();`;
 
 // Hides the product's brand name wherever the app renders it.
-const HIDE_BRAND = `(() => {
+const HIDE_BRAND = !BRAND ? '' : `(() => {
   const swap = (root) => {
     const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     for (let n = w.nextNode(); n; n = w.nextNode()) if (n.nodeValue.includes(${JSON.stringify(BRAND)})) n.nodeValue = n.nodeValue.split(${JSON.stringify(BRAND)}).join('Soothing cream');
@@ -125,7 +126,7 @@ async function main() {
     viewport: { width: 1920, height: 1080 },
     recordVideo: { dir: RAW, size: { width: 1920, height: 1080 } },
   });
-  await context.addInitScript(HIDE_BRAND);
+  if (HIDE_BRAND) await context.addInitScript(HIDE_BRAND);
 
   // Network: wrapper page, camera kit double, synthetic faces and masks, analysis replies, label reading.
   await context.route(`${BASE}/__video`, (r) => r.fulfill({ contentType: 'text/html', body: WRAPPER }));

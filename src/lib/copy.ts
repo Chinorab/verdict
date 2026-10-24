@@ -66,8 +66,8 @@ const GENERIC: Record<string, ErrorCopy> = {
     action: "Allow camera access for this site in your browser settings, or upload a photo instead.",
   },
   camera_resolution: {
-    title: "This camera cannot take a sharp enough photo with the strict check.",
-    action: "Try the camera again with a lighter check, or upload a photo taken with the front camera.",
+    title: "This camera is below the resolution the photo check expects.",
+    action: "Try a lighter check. A laptop webcam can still be used; its photos are measured in lower detail. A phone gives the best results.",
   },
   camera_failed: {
     title: "The camera stopped before a photo was taken.",

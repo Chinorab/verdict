@@ -85,6 +85,10 @@ export default function Home() {
                 <Icon name="lock" size={18} />
                 Face photos are kept on your phone
               </Link>
+              <span className={s.quiet}>
+                <Icon name="camera" size={18} />
+                Best on a phone; a laptop webcam works in lower detail
+              </span>
             </div>
           </div>
 

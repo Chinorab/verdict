@@ -7,7 +7,7 @@ import { kit, mockCameraKit } from "./ymk-double";
 
 /*
   Devpost gallery screenshots (T090). Runs only with GALLERY_DIR set, on the phone viewport,
-  against a deployment of the live build. Every number comes from the author's real SVR trial
+  against a deployment of the live build. Every number comes from the author's real trial
   (public/demo/demo-trial.verdict.json); no face photo appears on any screen.
   The verdict and review card shots need a measured check-in, so they are taken after Oct 31.
 */
@@ -42,7 +42,7 @@ test("1 landing", async ({ page }) => {
   await shot(page, "1-landing");
 });
 
-test("2 claims read from the real SVR label", async ({ page }) => {
+test("2 claims read from the author's real label", async ({ page }) => {
   // Replays the reading Claude returned on the author's phone for this label (the two claims it
   // read, kept in the demo trial with their reasons), so no paid call is made for a screenshot.
   const read = demo.claims
@@ -78,7 +78,7 @@ test("3 guided capture, before the photo", async ({ page }) => {
   await mockCameraKit(page);
   await mockBudget(page);
   await page.goto("/");
-  // The real SVR trial as it stood before day 0.
+  // The author's real trial as it stood before day 0.
   await seedTrial(page, {
     trial: { ...demo.trial, id: "gallery", kind: "real", status: "setup", mode: null },
     claims: demo.claims.map((c: object) => ({ ...c, trialId: "gallery" })),

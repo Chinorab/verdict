@@ -23,6 +23,8 @@ import { addCapture, CaptureRefused, finishDay0 } from "@/lib/trial-actions";
 import { loadTrial, type TrialBundle } from "@/lib/trial-data";
 import s from "./capture.module.css";
 
+type CameraLevel = "strict" | "moderate" | "any";
+
 /*
   Guided capture (T046, T052). Day 0 takes photos A and B one after the other; a check-in takes one.
   Every photo is stored on the device before it is sent, so a dropped connection never loses it,
@@ -79,7 +81,8 @@ export function CaptureView({ id, day }: { id: string; day: number | null }) {
   const [phase, setPhase] = useState<Phase>({ name: "loading" });
   const [quality, setQuality] = useState<FaceQuality | null>(null);
   const [kitReady, setKitReady] = useState(false);
-  const [level, setLevel] = useState<"strict" | "moderate">("strict");
+  // strict first; a camera below the strict preset gets a lighter check, then may run below 1080p (SD).
+  const [level, setLevel] = useState<CameraLevel>("strict");
   const [cameraKey, setCameraKey] = useState(0);
   const [flash, setFlash] = useState(false);
   const [help, setHelp] = useState(false);
@@ -339,16 +342,16 @@ export function CaptureView({ id, day }: { id: string; day: number | null }) {
                 Try again
                 <Icon name="arrow" />
               </button>
-            ) : phase.code === "camera_resolution" && level === "strict" ? (
+            ) : phase.code === "camera_resolution" && level !== "any" ? (
               <button
                 type="button"
                 className={s.primary}
                 onClick={() => {
-                  setLevel("moderate");
+                  setLevel(level === "strict" ? "moderate" : "any");
                   retake();
                 }}
               >
-                Try a lighter check
+                {level === "strict" ? "Try a lighter check" : "Use this camera anyway"}
                 <Icon name="arrow" />
               </button>
             ) : (
@@ -400,7 +403,7 @@ function Camera({
   onPhoto,
   onFailed,
 }: {
-  level: "strict" | "moderate";
+  level: CameraLevel;
   flash: boolean;
   onReady: (kit: KitSession) => void;
   onQuality: (q: FaceQuality) => void;
@@ -434,7 +437,7 @@ function Camera({
             onFailed: (code) => handlers.current.onFailed(code),
             onOpened: () => setOpened(true),
           },
-          { level, ...size },
+          { level: level === "any" ? "moderate" : level, anyResolution: level === "any", ...size },
         );
         handlers.current.onReady(session);
       })

@@ -157,3 +157,23 @@ test("without analyses the photo is kept and its size and detail are shown", asy
   expect(db.trial.mode).toBe("hd");
   expect(db.photos).toContain("face");
 });
+
+test("a webcam below the strict resolution gets a lighter check, then can be used anyway", async ({ page }) => {
+  await mockBudget(page);
+  await seedTrial(page, day0Seed());
+  await page.goto("/trial/seed-trial/capture");
+  await expect.poll(() => kit.calls(page).then((c) => c.length).catch(() => 0)).toBeGreaterThan(0);
+  await page.evaluate(() => (window as never as { __ymk: { emit: (e: string) => void } }).__ymk.emit("unsupportedResolution"));
+  await expect(page.getByText("This camera is below the resolution the photo check expects.")).toBeVisible();
+  await page.getByRole("button", { name: "Try a lighter check" }).click();
+  await expect.poll(() => kit.calls(page).then((c) => c.filter((x) => (x as unknown[])[0] === "init").length).catch(() => 0)).toBeGreaterThan(0);
+  await page.evaluate(() => (window as never as { __ymk: { emit: (e: string) => void } }).__ymk.emit("unsupportedResolution"));
+  await page.getByRole("button", { name: "Use this camera anyway" }).click();
+  await expect
+    .poll(async () => {
+      const calls = (await kit.calls(page).catch(() => [])) as [string, Record<string, unknown>][];
+      return calls.filter((c) => c[0] === "init").at(-1)?.[1];
+    })
+    .toMatchObject({ qualityLevel: "moderate", disableCameraResolutionCheck: true });
+  await expect(page.getByText("Day 0, photo 1 of 2")).toBeVisible();
+});

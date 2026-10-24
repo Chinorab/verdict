@@ -137,12 +137,13 @@ export type KitSession = { capture: () => boolean; close: () => void };
 
 /**
   Opens the camera in the #YMK-module mount. Skincare mode, 1080p output, blob images.
-  `level` drops to "moderate" when the strict preset is not supported on this device.
+  `level` drops to "moderate" when the strict preset is not supported on this device, and
+  `anyResolution` lets a camera below 1080p through (laptop webcams), measured in SD.
 */
 export function openKit(
   ymk: Ymk,
   handlers: KitHandlers,
-  opts: { level?: "strict" | "moderate"; width?: number; height?: number } = {},
+  opts: { level?: "strict" | "moderate"; anyResolution?: boolean; width?: number; height?: number } = {},
 ): KitSession {
   const ids: unknown[] = [];
   let closed = false;
@@ -172,6 +173,8 @@ export function openKit(
     qualityLevel: opts.level ?? "strict",
     videoQuality: "1080p",
     hideFlipCameraButton: false,
+    // A webcam below the kit's required resolution can still be used; its photos lock the trial to SD.
+    ...(opts.anyResolution ? { disableCameraResolutionCheck: true } : {}),
     ...(opts.width && opts.height ? { width: opts.width, height: opts.height } : {}),
   });
   ymk.openCameraKit();
